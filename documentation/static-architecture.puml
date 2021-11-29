@@ -1,0 +1,11 @@
+@startuml
+
+database DeviceData
+[GUI] --> [DeviceManager]
+[GUI] --> [BlindsManager]
+[DeviceManager] --> [DeviceDataAccess]
+[BlindsManager] --> [DeviceDataAccess]
+[DeviceDataAccess] --> DeviceData
+[BlindsManager] --> [BlindsAccess]
+
+@enduml
