@@ -1,11 +1,30 @@
-@startuml
+@startuml Static Architecture
 
-database DeviceData
-[GUI] --> [DeviceManager]
-[GUI] --> [BlindsManager]
-[DeviceManager] --> [DeviceDataAccess]
-[BlindsManager] --> [DeviceDataAccess]
-[DeviceDataAccess] --> DeviceData
-[BlindsManager] --> [BlindsAccess]
+skinparam ComponentStyle rectangle
+
+component Client {
+    [GUI] #LightGreen
+}
+
+component BusinessLogic {
+    [DeviceManager] #Yellow
+    [BlindsManager] #Yellow   
+}
+
+component ResourceAccess {
+    [DeviceDataAccess] #Grey
+    [DeviceAccess] #Grey
+    [BlindsAccess] #Grey
+}
+
+component Resources {
+    database DeviceData #LightBlue
+    [RESTClient] #LightBlue
+    [Device] #LightBlue
+}
+
+Client -[hidden]d-> BusinessLogic
+BusinessLogic --[hidden]d-> ResourceAccess
+ResourceAccess --[hidden]d-> Resources
 
 @enduml
