@@ -34,10 +34,10 @@
 
 ## Power down after timeout
 
-1. Device is idle for 2 (tbc) minutes
+1. Device is idle for 2 (tbc - the time the longest blind takes to open/close + margin) minutes
 2. Device turns off
 
-## Power down with low battery
+## Power down because of low battery
 
 1. Device determines battery level
 2. If battery level < 3%
