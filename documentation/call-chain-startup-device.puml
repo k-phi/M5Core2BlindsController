@@ -1,0 +1,21 @@
+@startuml CallChain Startup Device
+
+skinparam ComponentStyle rectangle
+
+[HMI] #LightGreen
+[DeviceManager] #Yellow
+[BlindsManager] #Yellow
+[DeviceAccess] #Grey
+[DeviceDataAccess] #Grey
+[Device] #LightBlue
+database DeviceData #LightBlue
+
+
+HMI --> DeviceManager
+HMI --> BlindsManager
+DeviceManager --> DeviceAccess
+BlindsManager --> DeviceDataAccess
+DeviceAccess --> Device
+DeviceDataAccess --> DeviceData
+
+@enduml

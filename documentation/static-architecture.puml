@@ -3,7 +3,7 @@
 skinparam ComponentStyle rectangle
 
 component Client {
-    [GUI] #LightGreen
+    [HMI] #LightGreen
 }
 
 component BusinessLogic {

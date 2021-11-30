@@ -6,7 +6,8 @@
 2. Device displays startup
 3. Device connects to wireless network
    1. If connection unsuccessful the device retries to connect until successful
-4. Device displays blind controls
+4. Device loads enabling state of blinds
+5. Device displays blind controls
 
 ## Enable and disable blinds to control
 
