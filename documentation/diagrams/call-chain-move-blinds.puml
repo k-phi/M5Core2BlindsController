@@ -1,0 +1,14 @@
+@startuml Chall Chain Move Blinds
+
+skinparam ComponentStyle rectangle
+
+[HMI] #LightGreen
+[BlindsManager] #Yellow
+[BlindsAccess] #Grey
+[RESTClient] #LightBlue
+
+HMI --> BlindsManager
+BlindsManager --> BlindsAccess
+BlindsAccess --> RESTClient
+
+@enduml
