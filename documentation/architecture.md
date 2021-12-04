@@ -29,3 +29,25 @@
 ### Power down because of low battery level
 
 ![Call Chain Power Down after Timout](http://www.plantuml.com/plantuml/png/LO_12i9034Jl-Og0v_w2L5lmeY3OYuY7iCPsCPijkwcbV-zU2lKIPjwGWQcpKR8f23OavGpa5QznveHjd1NfRKLsFiJ90FB7wqY90ZOnZ55PxMQBC2PsHjeB0pnQ_dh75rBgEJrnTsUHEA_yu1pdNF0fyRB2Oi--7-meKsduAy2gskFs5RPcamBKhA-ov0S0 "Call Chain Power Down after Timout")
+
+## Volatilities
+
+### User based volatilities
+
+This system is not intended to be used by other users with different requirements. However, other users would most likely require a different local mapping of the IoT devices. E.g. another user might want to map blinds by rooms instead of mapping them by an entire floor.
+
+Another user might want to use different IoT devices for blinds exposing different REST endpoints or requiring a different protocol. And in addition to blinds they might want to control a different IoT category such as lights, speakers, etc.
+
+For the above mentioned cases changing the HMI, BlindsManager, BlindsAccess or adding new components would be necessary. The changes would most likely remain confined within a few components and not require a totally new architecture or a rewrite of all components.
+
+### Time based volatilities
+
+While the first version of the system will be implemented for one blind, it is the goal to control all blinds of an entire floor. The following requirements could arise in the future:
+
+* Mapping blinds to two floors and switching between floors.
+* Controlling lights by rooms, e.g. all lights in the living room.
+* Starting / stopping Sonos speakers by rooms.
+* Starting the vacuum cleaner.
+* Suspending the ring tone of the door bell for a limited time.
+
+The impacts of these changes on the architecture would be similar as described above for the user based volatilities.
