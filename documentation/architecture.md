@@ -17,3 +17,15 @@
 ### Move blinds
 
 ![Chall Chain Move Blinds](http://www.plantuml.com/plantuml/png/LO_12e9048RlynG3dNs5C2Kgo4js2UcmwA1BuwpiheLltw18TXdu_s_cWqb3D3wEFMFU6Pwd5IpScp1ZAqq022yhW_6cnzprWnEIMCQ92JtLqKZB152TYyiJTrVRTl7aYGIgvRmmObhooXx4x3vhVwXh2a5htPwWkXtBUyvMrQibur6zgiKasUEV3FxIXYzIs8QP_km0AKcZxtu1 "Chall Chain Move Blinds")
+
+### Display battery level
+
+### Power down by button
+
+![Call Chain Display Battery Level](http://www.plantuml.com/plantuml/png/LOz12eD034NtEKMWQwzGh0fjGLTT5UaYsA13OvIPQ9dRTw08kWdy_puFaWSZRyieM9AaCv1Jh5oOXI8MPCO-Oiqh2q3uE9t9quZbDCwJijh3eZ1wxeoq5mPeRytzXQVQzODTFRD2M_7gEcv8gMUVs9D5fk_MNxgEGqXrMiUjt0o5BCcPb9XbPpo8u91s_2-4VTXHW9prdVxz0G00 "Call Chain Display Battery Level")
+
+### Power down after timeout
+
+### Power down because of low battery level
+
+![Call Chain Power Down after Timout](http://www.plantuml.com/plantuml/png/LO_12i9034Jl-Og0v_w2L5lmeY3OYuY7iCPsCPijkwcbV-zU2lKIPjwGWQcpKR8f23OavGpa5QznveHjd1NfRKLsFiJ90FB7wqY90ZOnZ55PxMQBC2PsHjeB0pnQ_dh75rBgEJrnTsUHEA_yu1pdNF0fyRB2Oi--7-meKsduAy2gskFs5RPcamBKhA-ov0S0 "Call Chain Power Down after Timout")

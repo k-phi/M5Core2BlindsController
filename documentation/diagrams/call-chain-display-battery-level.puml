@@ -1,0 +1,14 @@
+@startuml Call Chain Display Battery Level
+
+skinparam ComponentStyle rectangle
+
+[HMI] #LightGreen
+[DeviceManager] #Yellow
+[DeviceAccess] #Grey
+[Device] #LightBlue
+
+HMI --> DeviceManager
+DeviceManager --> DeviceAccess
+DeviceAccess --> Device
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml Call Chain Power Down after Timout
+
+skinparam ComponentStyle rectangle
+
+[DeviceManager] #Yellow
+[DeviceAccess] #Grey
+[Device] #LightBlue
+
+DeviceManager --> DeviceAccess
+DeviceAccess --> Device
+
+@enduml
