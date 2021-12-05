@@ -4,6 +4,8 @@
 
 ![Static Architecture](http://www.plantuml.com/plantuml/png/RP91ImCn48Nl-HK1p_iNfDrML6WlNIzIzZ0cmsumEod9H2dYVtSaMspgvXAOxxrvuP5LOeYS9wyx1dP6hwCP7QFX756fzExe114clGdJAH0ITtpsgACeW0Ol6dCXUkFTx_Mbj9pZq_wvrtSxDupy6159VLzhsvmSOKgxC4ZgRDdYXpEu1u81evXVqVlmMLZh7TbqouJKUm-OGeu6ryR8zdhn5XZANFpoflCrN00biWQBOPSSAm5la53_vSqDj3vZMNfuw5vAKVq_LcpLNFBcMflZwAn5wcrpNzUdwZARIbaNecxwMTOcfLP8Lhx53m00 "Static Architecture")
 
+Utility components which can be used by any component are (not yet) required.
+
 ## Call chains
 
 ### Startup device
@@ -51,3 +53,19 @@ While the first version of the system will be implemented for one blind, it is t
 * Suspending the ring tone of the door bell for a limited time.
 
 The impacts of these changes on the architecture would be similar as described above for the user based volatilities.
+
+## Contracts
+
+### Contract overview
+
+![Contracts](http://www.plantuml.com/plantuml/png/TP7T2i8m34RlznIzd6yXkfk1WZ1VeBQV8z0beyqc8hwxTJ3ycxdzJdEIT9tKHXswOBR26gtJL1J4YdYs3gQkC993erQ7D1FcLfXSev0tO7iAA1kDnAtn4rrNgnVWAIqJzm_F9X3xhNITPRyeaXuyDpazuG-B2vBmFqug_V-qbQCS996I_2hk2-VucY_dfeLkh6RkkiE8KFC1qO6rVFFqSa6ivCBbyuLI1ncqvZs5G0sSvCqdtnhiyuyy0000 "Contracts")
+
+### Contract to component mapping
+
+![Contracts to Component Mapping](http://www.plantuml.com/plantuml/png/ZLH1JiCm4Bpd5PPwAOVs0GYXKY91f4Qg52wSaEiimS9UH_QcfOB-7QS56hSEQMxMp7fcPwpC775BZLRitY1PBiWnClwWQuE0n79UrnAh977l4cjkkJw21MqLC0k2E5OA4gwKsRne-R4Va4XWNxa0bgMmbW8AujIuNntscJ3_hOqi6I1VAHWNPFqaA_ViBBqw4ahfuenTe3DN4ajlJtCieqAc1lozPDMI0nMXZ8D-s96f-z7AF9cbSPAaEPVOHU8uyUTnLW7DENdUTW5hK1akmGeVzBYZKviDsDHiSDnEaDHW6iembqh90eJnc-_rn5-5Ztd6HWjPlT631S0Eii_BvHnv1PQDdg4ji8CVZ0xXAIT-9mGunqPUONj6w04FwW6Oj5wdqzluaxbcZGDtv4JhFYM5OV-WuU8tNvDcqYSfTQr0Ux-dKzDcm6TKfCVpWCf_cuOb1Rj4xm_vtIsY5tVQlJIdeFLXGy4xk3YcP0PO-X_NDm00 "Contracts to Component Mapping")
+
+## Configuration
+
+The following data structure is required to configure a blind. Instead of a class a struct is sufficient.
+
+![Blind Configuration](http://www.plantuml.com/plantuml/png/JOvD4i8m24RtEGL7wUXU5vuWjbYPIOZoeml7kpVIZihgyGqy6DIocDS2kq8ymRxnXMQNRDGu9MIlS1H2jaZWbQ0NDx5ha3RV2BDQm1Cxl5CQIrPTjQjrMoOsAFZ04js_lFtuEwbuT-GH3rxFA16VJ8XdeDldoe0yzVSN "Blind Configuration")

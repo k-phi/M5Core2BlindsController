@@ -1,0 +1,20 @@
+@startuml Contracts
+
+interface IDeviceStatusContract {
+    void enable(String deviceID)
+    void disable(String deviceID)
+}
+
+interface IBlindCommandsContract {
+    void open(String blindID)
+    void close(String blindID)
+    void stop(String blindID)
+    void goToPosition(String blindID)
+}
+
+interface IDeviceContract {
+    int getBatteryLevelInPercent()
+    void powerDown(int timeoutInMilliSeconds)
+}
+
+@enduml

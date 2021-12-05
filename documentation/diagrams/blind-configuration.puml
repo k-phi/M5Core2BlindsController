@@ -1,0 +1,17 @@
+@startuml Blind Configuration
+
+enum Orientation {
+    north
+    south
+    east
+    west
+}
+
+class BlindConfig {
+    int level
+    Orientation orientation
+    int sequenceNumber
+    String ip
+}
+
+@enduml

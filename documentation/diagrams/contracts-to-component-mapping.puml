@@ -1,0 +1,43 @@
+@startuml Contracts to Component Mapping
+
+skinparam ComponentStyle rectangle
+allow_mixing
+
+interface IDeviceStatusContract {
+    void enable(String deviceID)
+    void disable(String deviceID)
+}
+
+interface IBlindCommandsContract {
+    void open(String blindID)
+    void close(String blindID)
+    void stop(String blindID)
+    void goToPosition(String blindID)
+}
+
+interface IDeviceContract {
+    int getBatteryLevelInPercent()
+    void powerDown(int timeoutInMilliSeconds)
+}
+
+component HMI #LightGreen
+component BlindsManager #Yellow
+component DeviceManager #Yellow
+component DeviceDataAccess #Grey
+component DeviceAccess #Grey
+component BlindsAccess #Grey
+
+HMI ..> IDeviceStatusContract: uses
+HMI ..> IBlindCommandsContract: uses
+HMI ..> IDeviceContract: uses
+BlindsManager <|-u- IDeviceStatusContract: implements
+BlindsManager .u.> IDeviceStatusContract: uses
+BlindsManager <|-u- IBlindCommandsContract: implements
+BlindsManager .u.> IBlindCommandsContract: uses
+DeviceManager <|-u- IDeviceContract: implements
+DeviceManager .u.> IDeviceContract: uses
+DeviceDataAccess <|-u- IDeviceStatusContract: implements
+DeviceAccess <|-u- IDeviceContract: implements
+BlindsAccess <|-u- IBlindCommandsContract: implements
+
+@enduml
