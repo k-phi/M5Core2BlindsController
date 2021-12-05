@@ -3,20 +3,21 @@
 <!-- vscode-markdown-toc -->
 * 1. [Static architecture](#Staticarchitecture)
 * 2. [Call chains](#Callchains)
-  * 2.1. [Startup device](#Startupdevice)
-  * 2.2. [Enable and disable blinds](#Enableanddisableblinds)
-  * 2.3. [Move blinds](#Moveblinds)
-  * 2.4. [Display battery level](#Displaybatterylevel)
-  * 2.5. [Power down by button](#Powerdownbybutton)
-  * 2.6. [Power down after timeout](#Powerdownaftertimeout)
-  * 2.7. [Power down because of low battery level](#Powerdownbecauseoflowbatterylevel)
-* 3. [Volatilities](#Volatilities)
-  * 3.1. [User based volatilities](#Userbasedvolatilities)
-  * 3.2. [Time based volatilities](#Timebasedvolatilities)
-* 4. [Contracts](#Contracts)
-  * 4.1. [Contract overview](#Contractoverview)
-  * 4.2. [Contract to component mapping](#Contracttocomponentmapping)
-* 5. [Configuration](#Configuration)
+	* 2.1. [Startup device](#Startupdevice)
+	* 2.2. [Enable and disable blinds](#Enableanddisableblinds)
+	* 2.3. [Move blinds](#Moveblinds)
+	* 2.4. [Display battery level](#Displaybatterylevel)
+	* 2.5. [Power down by button](#Powerdownbybutton)
+	* 2.6. [Power down after timeout](#Powerdownaftertimeout)
+	* 2.7. [Power down because of low battery level](#Powerdownbecauseoflowbatterylevel)
+* 3. [Component dependency chart](#Componentdependencychart)
+* 4. [Volatilities](#Volatilities)
+	* 4.1. [User based volatilities](#Userbasedvolatilities)
+	* 4.2. [Time based volatilities](#Timebasedvolatilities)
+* 5. [Contracts](#Contracts)
+	* 5.1. [Contract overview](#Contractoverview)
+	* 5.2. [Contract to component mapping](#Contracttocomponentmapping)
+* 6. [Configuration](#Configuration)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -56,9 +57,13 @@ Utility components which can be used by any component are (not yet) required.
 
 ![Call Chain Power Down after Timout](http://www.plantuml.com/plantuml/png/LO_12i9034Jl-Og0v_w2L5lmeY3OYuY7iCPsCPijkwcbV-zU2lKIPjwGWQcpKR8f23OavGpa5QznveHjd1NfRKLsFiJ90FB7wqY90ZOnZ55PxMQBC2PsHjeB0pnQ_dh75rBgEJrnTsUHEA_yu1pdNF0fyRB2Oi--7-meKsduAy2gskFs5RPcamBKhA-ov0S0 "Call Chain Power Down after Timout")
 
-##  3. <a name='Volatilities'></a>Volatilities
+##  3. <a name='Componentdependencychart'></a>Component dependency chart
 
-###  3.1. <a name='Userbasedvolatilities'></a>User based volatilities
+![Static Architecture](http://www.plantuml.com/plantuml/png/RP7BRi8m44NtynKZiUONAbvLgKGsX4qLiHYSKR3gECYUKF7tZ0WqTiJsFexcseie5AHl7PP2OWqkWpbROIDzO83uQ_s50hMuxjfBvzbBAJV763H1ld6QgRR5zn5dEzkSvIimUwWsVBM62_BKS53lXvth_g1QEUlhEDKHyLNPaD3I68vHNONTNiP4742vM6ltH95nH3slMhcUeTf_beUriphXcEb3FDD09-5y_e7Pa7yrcm5P9caDrq4MJknnwfj8kWzIN0A0AMS2XnJoyCON05Ymh_NRxm00 "Static Architecture")
+
+##  4. <a name='Volatilities'></a>Volatilities
+
+###  4.1. <a name='Userbasedvolatilities'></a>User based volatilities
 
 This system is not intended to be used by other users with different requirements. However, other users would most likely require a different local mapping of the IoT devices. E.g. another user might want to map blinds by rooms instead of mapping them by an entire floor.
 
@@ -66,7 +71,7 @@ Another user might want to use different IoT devices for blinds exposing differe
 
 For the above mentioned cases changing the HMI, BlindsManager, BlindsAccess or adding new components would be necessary. The changes would most likely remain confined within a few components and not require a totally new architecture or a rewrite of all components.
 
-###  3.2. <a name='Timebasedvolatilities'></a>Time based volatilities
+###  4.2. <a name='Timebasedvolatilities'></a>Time based volatilities
 
 While the first version of the system will be implemented for one blind, it is the goal to control all blinds of an entire floor. The following requirements could arise in the future:
 
@@ -78,17 +83,17 @@ While the first version of the system will be implemented for one blind, it is t
 
 The impacts of these changes on the architecture would be similar as described above for the user based volatilities.
 
-##  4. <a name='Contracts'></a>Contracts
+##  5. <a name='Contracts'></a>Contracts
 
-###  4.1. <a name='Contractoverview'></a>Contract overview
+###  5.1. <a name='Contractoverview'></a>Contract overview
 
-![Contracts](http://www.plantuml.com/plantuml/png/TP7T2i8m34RlznIzd6yXkfk1WZ1VeBQV8z0beyqc8hwxTJ3ycxdzJdEIT9tKHXswOBR26gtJL1J4YdYs3gQkC993erQ7D1FcLfXSev0tO7iAA1kDnAtn4rrNgnVWAIqJzm_F9X3xhNITPRyeaXuyDpazuG-B2vBmFqug_V-qbQCS996I_2hk2-VucY_dfeLkh6RkkiE8KFC1qO6rVFFqSa6ivCBbyuLI1ncqvZs5G0sSvCqdtnhiyuyy0000 "Contracts")
+![Contracts](http://www.plantuml.com/plantuml/png/TP5DYiCm38NtEOMNwIrAcou2KoYa5t3iro1mf60h2MNetSSDbFvCe-txfFSaRPFQg6CVp5vOetMQYe9O4I_MmTGL9d9erEgO7eJvBKokISWRi6q3oaOZSMVyGjVLvWbuIkj4An8CfSCon7ymVbFSthBi0h7VIzzRzb_3o01-36dly5iI5oHXNKugmxhQoLbEaaX9_blSlfpi8r_MJGVTMStSzGSJGiqdH0VMyiLda1cnafdBUuTI3ncrvYE5G0sSvCqNlotOvw_z0G00 "Contracts")
 
-###  4.2. <a name='Contracttocomponentmapping'></a>Contract to component mapping
+###  5.2. <a name='Contracttocomponentmapping'></a>Contract to component mapping
 
-![Contracts to Component Mapping](http://www.plantuml.com/plantuml/png/ZLH1JiCm4Bpd5PPwAOVs0GYXKY91f4Qg52wSaEiimS9UH_QcfOB-7QS56hSEQMxMp7fcPwpC775BZLRitY1PBiWnClwWQuE0n79UrnAh977l4cjkkJw21MqLC0k2E5OA4gwKsRne-R4Va4XWNxa0bgMmbW8AujIuNntscJ3_hOqi6I1VAHWNPFqaA_ViBBqw4ahfuenTe3DN4ajlJtCieqAc1lozPDMI0nMXZ8D-s96f-z7AF9cbSPAaEPVOHU8uyUTnLW7DENdUTW5hK1akmGeVzBYZKviDsDHiSDnEaDHW6iembqh90eJnc-_rn5-5Ztd6HWjPlT631S0Eii_BvHnv1PQDdg4ji8CVZ0xXAIT-9mGunqPUONj6w04FwW6Oj5wdqzluaxbcZGDtv4JhFYM5OV-WuU8tNvDcqYSfTQr0Ux-dKzDcm6TKfCVpWCf_cuOb1Rj4xm_vtIsY5tVQlJIdeFLXGy4xk3YcP0PO-X_NDm00 "Contracts to Component Mapping")
+![Contracts to Component Mapping](http://www.plantuml.com/plantuml/png/ZLJ1Ji904BttApRXWWVu06CCOeqseGb9lNWootQi6xSppUuK9Cg_knIHBhH2RyrxC--zUKqdZgNbkZJYdf2jLEm4atyfAq905gciAer55BaFZPMqiZo06QyD20kA9HO68caChLvB_TaCQ6ImRrA1I69OQWKPIwxTNaTyHS8_IzAv09GB0yEChPyKUSDEugi38TUkdx4WCaAxXsP9VihP15wcHcFk8vGIyqupL07kboosvC29CkIW7tPCLJzQq3FDoMdMT2gnwJZPaJ-FYm9uAjdprZDOWabm3bRvCeOjdOfMO6DQuN0xmRe4gZd1L1kZCr3aapTwwg_cfpGHWvaktldH0c0BQUxbKeco02i6Bx0jkONlZ9x3OydoJYbmJWoymlg4q0Fkr0CmsdeTZs-xFwjhKJjm1qvdtSUayDY_Q1ZyvdjKZ_eaTLaPABtVuwbnVSPdfqYFvpCg_oKDImgoTEuF-UqKdOjRxLvwfw3ryuQ2x-3YCqKJmDp_t7u0 "Contracts to Component Mapping")
 
-##  5. <a name='Configuration'></a>Configuration
+##  6. <a name='Configuration'></a>Configuration
 
 The following data structure is required to configure a blind. Instead of a class a struct is sufficient.
 

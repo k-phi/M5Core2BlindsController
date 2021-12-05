@@ -1,0 +1,24 @@
+@startuml Static Architecture
+
+skinparam ComponentStyle rectangle
+
+[HMI] #LightGreen
+[DeviceManager] #Yellow
+[BlindsManager] #Yellow   
+[DeviceDataAccess] #Grey
+[DeviceAccess] #Grey
+[BlindsAccess] #Grey
+database DeviceData #LightBlue
+[RESTClient] #LightBlue
+[Device] #LightBlue
+
+HMI --> DeviceManager
+HMI --> BlindsManager
+DeviceManager --> DeviceAccess
+BlindsManager --> DeviceDataAccess
+BlindsManager --> BlindsAccess
+DeviceAccess --> Device
+DeviceDataAccess --> DeviceData
+BlindsAccess --> RESTClient
+
+@enduml

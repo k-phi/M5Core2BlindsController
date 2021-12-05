@@ -3,6 +3,7 @@
 interface IDeviceStatusContract {
     void enable(String deviceID)
     void disable(String deviceID)
+    bool isEnabled(String deviceId)
 }
 
 interface IBlindCommandsContract {
