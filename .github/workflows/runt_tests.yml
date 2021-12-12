@@ -1,10 +1,13 @@
-name: learn-github-actions
+name: build-and-run-tests
 on: [push]
 jobs:
   build-and-run-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - working-directory: ./test
-      - run: bazelisk build //:tests
-      - run: bazelisk test --test_output=all //:tests
+      - name: Build tests
+        working-directory: ./test
+        run: bazelisk build //:tests
+      - name: Run tests
+        working-directory: ./test
+        run: bazelisk test --test_output=all //:tests
