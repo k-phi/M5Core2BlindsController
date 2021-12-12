@@ -1,4 +1,4 @@
-# m5stack-shelly-blindscontroller
+# M5Core2BlindsController
 
 An M5StackCore2 program to control blinds via Shelly 2.5 relays
 
