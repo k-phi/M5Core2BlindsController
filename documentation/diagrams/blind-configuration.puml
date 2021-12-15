@@ -9,7 +9,7 @@ enum Orientation {
 
 class BlindConfig {
     int level
-    Orientation orientation
+    Orientation facade
     int sequenceNumber
     String ip
 }

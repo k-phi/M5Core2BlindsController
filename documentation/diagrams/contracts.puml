@@ -14,7 +14,9 @@ interface IBlindCommandsContract {
 }
 
 interface IDeviceContract {
+    int getBatteryWarningLevel()
     int getBatteryLevelInPercent()
+    void connectWifi(String ssid, String password)
     void powerDown(int timeoutInMilliSeconds)
 }
 
