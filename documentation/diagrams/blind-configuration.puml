@@ -1,17 +1,22 @@
 @startuml Blind Configuration
 
-enum Orientation {
-    north
-    south
-    east
-    west
+class Rectangle {
+    Point bottomLeftCorner
+    float height 
+    float width
+}
+
+class Point {
+    float x
+    float y
 }
 
 class BlindConfig {
     int level
-    Orientation facade
-    int sequenceNumber
+    Rectangle layout
+    int uniqueId
     String ip
+    int position
 }
 
 @enduml

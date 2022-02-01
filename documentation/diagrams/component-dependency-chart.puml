@@ -17,6 +17,7 @@ HMI --> BlindsManager
 DeviceManager --> DeviceAccess
 BlindsManager --> DeviceDataAccess
 BlindsManager --> BlindsAccess
+BlindsManager --> DeviceAccess
 DeviceAccess --> Device
 DeviceDataAccess --> DeviceData
 BlindsAccess --> RESTClient

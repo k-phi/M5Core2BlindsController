@@ -6,7 +6,7 @@ allow_mixing
 interface IDeviceStatusContract {
     void enable(String deviceID)
     void disable(String deviceID)
-    bool isEnabled(String deviceID)
+    bool isEnabled(String deviceId)
 }
 
 interface IBlindCommandsContract {
@@ -19,7 +19,8 @@ interface IBlindCommandsContract {
 interface IDeviceContract {
     int getBatteryWarningLevel()
     int getBatteryLevelInPercent()
-    void connectWifi(String ssid, String password)
+    void connectDevices()
+    bool areDevicesConnected()
     void powerDown(int timeoutInMilliSeconds)
 }
 

@@ -43,7 +43,7 @@ Utility components which can be used by any component are (not yet) required.
 
 ###  2.3. <a name='Moveblinds'></a>Move blinds
 
-![Chall Chain Move Blinds](http://www.plantuml.com/plantuml/png/LO_12e9048RlynG3dNs5C2Kgo4js2UcmwA1BuwpiheLltw18TXdu_s_cWqb3D3wEFMFU6Pwd5IpScp1ZAqq022yhW_6cnzprWnEIMCQ92JtLqKZB152TYyiJTrVRTl7aYGIgvRmmObhooXx4x3vhVwXh2a5htPwWkXtBUyvMrQibur6zgiKasUEV3FxIXYzIs8QP_km0AKcZxtu1 "Chall Chain Move Blinds")
+![Chall Chain Move Blinds](http://www.plantuml.com/plantuml/png/RL3D2i8m3BxdAGgUzmeoDqK5Tt5UP7WeDMp5B1rjDzdRMpQ6dNW9vFl9zv7KUMbztvB86qdJr2mACw38IFFJ0RYNvavQsOhSj9rXP5_waL1OL5voJGXGdOhpGsmkkcxyqI8oLBEza2nhj86x8v5vB_XEANGkm44zGhN7GIly0Q-7yfQJ3ddBwOnwNCGh34A-I9AjMAN2QeluEUWF7VU0M3kntq8G2oCdG8hy3E_y0000 "Chall Chain Move Blinds")
 
 ###  2.4. <a name='Displaybatterylevel'></a>Display battery level
 
@@ -59,7 +59,7 @@ Utility components which can be used by any component are (not yet) required.
 
 ##  3. <a name='Componentdependencychart'></a>Component dependency chart
 
-![Static Architecture](http://www.plantuml.com/plantuml/png/RP7BRi8m44NtynKZiUONAbvLgKGsX4qLiHYSKR3gECYUKF7tZ0WqTiJsFexcseie5AHl7PP2OWqkWpbROIDzO83uQ_s50hMuxjfBvzbBAJV763H1ld6QgRR5zn5dEzkSvIimUwWsVBM62_BKS53lXvth_g1QEUlhEDKHyLNPaD3I68vHNONTNiP4742vM6ltH95nH3slMhcUeTf_beUriphXcEb3FDD09-5y_e7Pa7yrcm5P9caDrq4MJknnwfj8kWzIN0A0AMS2XnJoyCON05Ymh_NRxm00 "Static Architecture")
+![Static Architecture](http://www.plantuml.com/plantuml/png/TPBDRi8m48Jl-nGhSUOL4B-YbU12Ua4HXwsp2bOT1zcR8jwU5O76ZkZHyytEUYpFer2Ghd5O28ark0ZcR8MDT841ue_r5mhKuAfjBgrdBuNS76DG1_dQgQVys7-USBApzLcsWTb3kUPVQtXFdceEoexiN7k5Skcih-9OHyJNo9g45iPmZ4erxFO28x4FoiLAPxyfCWvHprijNSTG7ZR5ryfPhN3AzDwUQQ2LS3gTOLRaJyrgGEP9flhRGMPEy53rZINjzs_24wU7XC9upMWtf3iUR7WWW3dxId_57G00 "Static Architecture")
 
 ##  4. <a name='Volatilities'></a>Volatilities
 
@@ -87,14 +87,14 @@ The impacts of these changes on the architecture would be similar as described a
 
 ###  5.1. <a name='Contractoverview'></a>Contract overview
 
-![Contracts](http://www.plantuml.com/plantuml/png/TPB1QiCm38RlUGeV4zX3b3Oz13OefD2pOwj1u4Z1KXB6wBlN3GjhkyGtyN_wzKju9sgZ3bqm1oQDrgba6P92l5e7fYfXH0UrMXra8SnFPj8R6Rq1ias0lDQ8r1e_qrLP_04UPPjec8D1ESuc_etnHNPxoR8FIFx0NMV9huRX7cWnQHxmIn8NM61R5kL-Mstvp2SMLEJ_8suh9tlBbtJJWkwj9kxxOYCbXqyO8UJ52Z0h5PqWEY3DdxTW8d1wmIikEKJGVvZVehSY4qV_rDBp1B7aYVB74CKEUD2AlZ04h24PUfbts07vz1Fk "Contracts")
+![Contracts](http://www.plantuml.com/plantuml/png/TPB1QiCm44Jl_WeTvRy8iNimj11meMTPsfe5UTTermwbvD-hE0rrKbj7pTFixA23g4iw3T5KJ9gSLoaA98NqwJoOfeOPFRJgT98xORuBay_C60oGwoBOLXDIRy92DtNv1mIKVQ9ZZWRbPJ49JqmeYyj3bcD42XKFWwEm6OP7eBj9TuKValZ80lkoA8_xQi_lV691HVu_uh9HsLE-h9iUzEWqSryVBb5sU8KPeYqtW4Lfw0J90wbTRy54uFKsHEogHvVWzxQwCRdHrSEHpv1gFfEzZb8SW2Tjw0rZn1QoRP1bamDGoF_X1m00 "Contracts")
 
 ###  5.2. <a name='Contracttocomponentmapping'></a>Contract to component mapping
 
-![Contracts to Component Mapping](http://www.plantuml.com/plantuml/png/ZLJHQjj047pNLnpunO767n12I5ENLX13m8NGftA-swXBJxlYTcN7jFdtdfMurjbI7RqTCxipixleLjH6RUjWFZ5fj4x5AAT7tJ01gLdOfa6gYa9-8JKssle0BdKRm4HmQgaAKDWGUFEZnkUk04aXFba7ffp36XqirMehUntpkp3fMpDw0sHN0QPBZQdI-8vTpYyE18yopbWn1uFokMlYJpalcPUxWEHJXDgI7pJ33T2-oMf7pfoum0BZi2WtusZ5t_Y11HNvLE9bO6H7_X9kAj0xguctVRIHKeTxM4EONWmGEgIa1uWkRMlQJy54QMsF-8Hx7oBeFvYtHsD5DXnzhwJX3SGvRsYw4r6iWLijQO4Xu19IGozT1lVlTBukIZEvn-gdVea0r4Ew7SZ2agqWcibts1rE3tyDVmwVMxKVdGCHCqaAsnF22FYgde75pkjiTZDygbUc5P03P_24Zadv0j_GFFZrdylsSamIwoP0dVmULytQCpu7HKOydr7vNz9yILcMmVuvlvzYi75lk--TKxRryuQoEtZtc8fR89z-c7y1 "Contracts to Component Mapping")
+![Contracts to Component Mapping](http://www.plantuml.com/plantuml/png/ZLHDIyD04BtdLopqaXxi3n0HFoeQQA5GGJp9D3l6nSrCs9sq5lM_kqtLPjl4cblotinxRsR8XHTmKfTMNJE9Wroy4WulPSM496eALMMeI1B_QgW21-KEdClQedAO2r1XCG5hUVLKchUcm92WUuOSLJR6fSbnBY2r_z5HxuaApvADLaYmi9ZEnOLAfHjsDXxk2DhuViQ2sIhZRvecUe-ZXybdvENA6j8XGWcaEyrmXVJJPB4XHqvoonxxOIzSzQC5t_EClH73XnAV7IFRynTmLQ1SWGJU-W4SXGuJNA9DXns41ibeXYuFsqhRAPWeh6qhujFM7C7XzzVhBITCj5LOyGhTc5UKRgJ4bCYrP3GrrfevXhRQDqdotmEwcsPgC375YzmwH6eXpIRy50WAT6hmY9lpQU5R7yVmCGXSvi6lLuEWi3uWz81RzGXCDbv7e_FkWprLjKU_utGUqZufNkCt6WS_-pYfJ_eaJLbPB8FV_QfHVSHdfqYFvoCgVoMDbnHbwUmVyzifEXktjllVEKLRFsuekeD_ZocvGDBXj_a5 "Contracts to Component Mapping")
 
 ##  6. <a name='Configuration'></a>Configuration
 
 The following data structure is required to configure a blind. Instead of a class a struct is sufficient.
 
-![Blind Configuration](http://www.plantuml.com/plantuml/png/JOv13W8n24NtFGL7cUXU5vu0MsOaQQaMq8NnxbCx4oEhnmyycDImcPSCXyoIu5XbviKR6bS9WSGBd1kJs4ZW7Q2Nr6QtGLfz9qAr0I_gy0aXPbJTj9jrNsOnoFIaFBf_-OmH4_s6b1vE4kdavKfjn1ThB0lm_NjW8adzynK0 "Blind Configuration")
+![Blind Configuration](http://www.plantuml.com/plantuml/png/JL114e8m3Bpt5NaA8oTdF3ZwWaf3oKn9i4rLXl7lOb4WfsIpsMnI9RLHSn_W48WTrC8j-Hojah0nJR0fmGKRjUm3mcHWZhCGAzn4LVeJjbfBP8obrGQn2XsIxnHso9ESTkRzLrmKfXtXjSl7ZLXSBQP-zEzWm0U6KctMWXqbwqh9JFUCHrU0gqPY3pIixK4IbHFdJHMocp_m0G00 "Blind Configuration")
