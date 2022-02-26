@@ -1,0 +1,11 @@
+@startsalt menu-view
+{+
+    
+    <&wifi>       |  Status      |  <&battery-full> 
+    {+
+        . | . | [<&x>]
+        [   <&power-standby> ] 
+    } | * | *
+
+}
+@endsalt
