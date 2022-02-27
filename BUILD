@@ -1,6 +1,6 @@
 cc_library(
   name = "firmware_abstraction_interfaces",
-  hdrs = ["src/IDevice.h", "src/IHttpClient.h", "src/IDeviceData.h", "src/UiControlBase.h", "src/IStatusBar.h", "src/ITouchButton.h"],
+  hdrs = ["src/IDevice.h", "src/IHttpClient.h", "src/IDeviceData.h", "src/IStatusBar.h", "src/ITouchButton.h"],
 )
 
 cc_library(

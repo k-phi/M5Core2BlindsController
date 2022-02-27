@@ -12,6 +12,10 @@ class StatusBar : public IStatusBar {
     virtual void setWiFiConnectionStatus(bool isConnected);
 
    private:
+    int x_;
+    int y_;
+    int width_;
+    int height_;
     int cursorYOffset_;
 };
 #endif  // __STATUSBAR_H__

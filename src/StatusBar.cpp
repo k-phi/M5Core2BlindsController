@@ -1,8 +1,9 @@
 #include "StatusBar.h"
+
 #include <M5Core2.h>
 
 StatusBar::StatusBar(int x, int y, int width, int height)
-    : IStatusBar(x, y, width, height) {
+    : x_(x), y_(y), width_(width), height_(height) {
     cursorYOffset_ = 9;
 }
 

@@ -1,13 +1,9 @@
 #ifndef __ISTATUSBAR_H__
 #define __ISTATUSBAR_H__
 
-#include "UiControlBase.h"
-
-class IStatusBar : public UiControlBase {
+class IStatusBar {
    public:
     virtual ~IStatusBar(){};
-    IStatusBar(int x, int y, int width, int height)
-        : UiControlBase(x, y, width, height){};
     virtual void load() = 0;
     virtual void setBatteryLevel(float batteryLevelInPercent) = 0;
     virtual void setStatusMessage(const char* message) = 0;
