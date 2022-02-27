@@ -1,0 +1,25 @@
+#include "SelectionButton.h"
+
+SelectionButton::SelectionButton(int x, int y, int width, int height) {
+    ButtonColors onColor = {BLACK, YELLOW, YELLOW};
+    ButtonColors offColor = {YELLOW, BLACK, YELLOW};
+    button_ = new Button(x, y, width, height, false, "", onColor, offColor);
+}
+
+void SelectionButton::load() { button_->draw(); }
+
+bool SelectionButton::wasPressed() { return button_->wasPressed(); }
+
+void SelectionButton::select() {
+    button_->off = {YELLOW, NODRAW, YELLOW};
+    button_->draw();
+    isSelected_ = true;
+}
+
+void SelectionButton::unselect() {
+    button_->off = {BLACK, NODRAW, YELLOW};
+    button_->draw();
+    isSelected_ = false;
+}
+
+bool SelectionButton::isSelected() { return isSelected_; }
