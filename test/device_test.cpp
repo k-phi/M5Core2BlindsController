@@ -17,15 +17,15 @@ TEST(DeviceTest, setWifiSsidIsCalled) {
 
 TEST(HttpClientTest, beginIsCalled) {
     HttpClientWrapperMock httpClient;
-
     EXPECT_CALL(httpClient, begin(_)).Times(AtLeast(1));
+
     const char* url = "foo";
     httpClient.begin(url);
 }
 
 TEST(DeviceDataTest, saveBoolIsCalled) {
     DeviceDataMock deviceData;
-
     EXPECT_CALL(deviceData, saveBool(_,_)).Times(AtLeast(1));
+    
     deviceData.saveBool("foo", true);
 }
