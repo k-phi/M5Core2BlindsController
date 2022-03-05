@@ -4,6 +4,7 @@ SelectionButton::SelectionButton(int x, int y, int width, int height) {
     ButtonColors onColor = {BLACK, YELLOW, YELLOW};
     ButtonColors offColor = {YELLOW, BLACK, YELLOW};
     button_ = new Button(x, y, width, height, false, "", onColor, offColor);
+    select();
 }
 
 void SelectionButton::load() { button_->draw(); }
