@@ -1,4 +1,5 @@
 #include "HardwareButton.h"
+
 HardwareButton::HardwareButton(const char* label, ButtonType buttonType) {
     switch (buttonType) {
         case A:
@@ -28,4 +29,7 @@ void HardwareButton::load() { button_->draw(); }
 
 bool HardwareButton::wasPressed() { return button_->wasPressed(); }
 
-void HardwareButton::setLabel(const char* label) { button_->setLabel(label); }
+void HardwareButton::setLabel(const char* label) {
+    button_->setLabel(label);
+    button_->draw();
+}

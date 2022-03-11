@@ -12,6 +12,9 @@ void TouchButton::load() { button_->draw(); }
 
 bool TouchButton::wasPressed() { return button_->wasPressed(); }
 
-void TouchButton::setLabel(const char* label) { button_->setLabel(label); }
+void TouchButton::setLabel(const char* label) {
+    button_->setLabel(label);
+    button_->draw();
+}
 
 TouchButton::~TouchButton() { delete button_; }
