@@ -63,9 +63,12 @@ TEST(BlindsControlViewTests, load_callsLoadOnAllChildren) {
     TouchButtonMock closeButton;
     EXPECT_CALL(closeButton, load()).Times(AtLeast(1));
 
+    unsigned int numberOfSelectionButtons = sizeof(blindSelectionButtons)/sizeof(blindSelectionButtons[0]);
+    EXPECT_EQ(2, numberOfSelectionButtons);
+
     BlindsControlView *blindsControlView = new BlindsControlView(
         &goToTiltPositionButton, &powerOffButton, &toggleAllSelectionButton,
-        &statusBar, blindSelectionButtons, 2, &openButton, &stopButton,
+        &statusBar, blindSelectionButtons, numberOfSelectionButtons, &openButton, &stopButton,
         &closeButton);
 
     blindsControlView->load();    
