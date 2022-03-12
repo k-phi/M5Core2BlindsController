@@ -1,7 +1,7 @@
 cc_library(
   name = "application",
-  hdrs = glob(["src/*.h"]),
-  srcs = glob(["src/*.cpp"]),
+  hdrs = ["src/BlindsControlView.h", "src/IDevice.h", "src/IDeviceData.h", "src/IHttpClient.h", "src/ISelectionButton.h", "src/IStatusBar.h", "src/ITouchButton.h"],
+  srcs = ["src/BlindsControlView.cpp"],
 )
 
 cc_library(
