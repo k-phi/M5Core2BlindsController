@@ -1,7 +1,7 @@
 #ifndef __SELECTIONBUTTONMOCK_H__
 #define __SELECTIONBUTTONMOCK_H__
 
-#include "../../src/ISelectionButton.h"
+#include "../../src/hmi/ISelectionButton.h"
 #include "gmock/gmock.h"
 
 class SelectionButtonMock : public ISelectionButton {

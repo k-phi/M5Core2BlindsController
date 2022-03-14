@@ -1,4 +1,4 @@
-#include "../src/BlindsControlView.h"
+#include "../src/hmi/BlindsControlView.h"
 
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>

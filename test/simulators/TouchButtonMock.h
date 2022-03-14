@@ -1,7 +1,7 @@
 #ifndef __TOUCHBUTTONMOCK_H__
 #define __TOUCHBUTTONMOCK_H__
 
-#include "../../src/ITouchButton.h"
+#include "../../src/hmi/ITouchButton.h"
 #include "gmock/gmock.h"
 
 class TouchButtonMock : public ITouchButton {

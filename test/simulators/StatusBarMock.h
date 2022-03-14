@@ -1,7 +1,7 @@
 #ifndef __STATUSBARMOCK_H__
 #define __STATUSBARMOCK_H__
 
-#include "../../src/IStatusBar.h"
+#include "../../src/hmi/IStatusBar.h"
 #include "gmock/gmock.h"
 
 class StatusBarMock : public IStatusBar {
