@@ -8,6 +8,7 @@ class HttpClientWrapperMock : public IHttpClient {
    public:
     MOCK_METHOD(bool, begin, (const char* url), (override));
     MOCK_METHOD(int, sendRequest, (const char* type), (override));
+    MOCK_METHOD(const char*, getPayload, (), (override));
 };
 
 #endif  // __HTTPCLIENTWRAPPERMOCK_H__

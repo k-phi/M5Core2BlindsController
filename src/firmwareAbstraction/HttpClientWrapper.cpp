@@ -10,3 +10,9 @@ int HttpClientWrapper::sendRequest(const char* type) {
     int httpCode = httpClient_.sendRequest(type);
     return httpCode;
 }
+
+const char* HttpClientWrapper::getPayload()
+{
+    String payLoad = httpClient_.getString();
+    return getPayload.c_str();
+}
