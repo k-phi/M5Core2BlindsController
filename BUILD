@@ -7,7 +7,8 @@ cc_library(
 
 cc_library(
   name = "application",
-  hdrs = ["src/IDevice.h", "src/IDeviceData.h", "src/IHttpClient.h"],
+  hdrs = ["src/IDevice.h", "src/IDeviceData.h", "src/IHttpClient.h", "src/HttpBlind.h", "src/BlindConfiguration.h"],
+  srcs = ["src/HttpBlind.cpp"],
 )
 
 cc_library(
