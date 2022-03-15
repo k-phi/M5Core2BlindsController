@@ -15,7 +15,8 @@ TEST(HttpBlindTest, canCreateHttpBlind) {
     config.canTilt = true;
     config.tiltPositionInPercent = 2.0f;
     HttpClientWrapperMock *httpClient = new HttpClientWrapperMock();
-    HttpBlind blind(config, httpClient);
+    long timeoutInMilliseconds = 100;
+    HttpBlind blind(config, httpClient, timeoutInMilliseconds);
 }
 
 
