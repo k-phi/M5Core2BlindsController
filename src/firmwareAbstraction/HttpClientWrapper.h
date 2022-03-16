@@ -7,10 +7,12 @@
 
 class HttpClientWrapper : public IHttpClient {
    public:
+    HttpClientWrapper();
     ~HttpClientWrapper(){};
     virtual bool begin(const char* url);
     virtual int sendRequest(const char* type);
     virtual const char* getPayload();
+    virtual void end();
 
    private:
     HTTPClient httpClient_;
