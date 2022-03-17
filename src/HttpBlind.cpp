@@ -1,6 +1,6 @@
 #include "HttpBlind.h"
 
-#include <String.h>
+#include <cstring>
 
 HttpBlind::HttpBlind(BlindConfiguration &blindConfiguration,
                      IHttpClient *httpClient, long &timeoutInMilliseconds)

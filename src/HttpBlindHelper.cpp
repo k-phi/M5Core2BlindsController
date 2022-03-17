@@ -1,6 +1,6 @@
 #include "HttpBlindHelper.h"
 
-#include <String.h>
+#include <cstring>
 
 const char* HttpBlindHelper::getStateStringFromPayload(const char* payload) {
     const char* colon;
