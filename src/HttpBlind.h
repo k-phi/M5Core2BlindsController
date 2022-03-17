@@ -5,6 +5,7 @@
 
 #include "BlindConfiguration.h"
 #include "IHttpClient.h"
+#include "HttpBlindHelper.h"
 
 class HttpBlind {
    public:
@@ -19,10 +20,11 @@ class HttpBlind {
 
    private:
     enum Command { NONE, OPEN, CLOSE, STOP, TILT };
-    enum State { OPENING, CLOSING, STOPPED };
+    enum State { OPENING, CLOSING, STOPPED, UNKNOWN };
     State getState();
     void setState(State state);
     bool isTimeoutExceeded();
+    State getRollerStateFromShelly();
     unsigned int Id_;
     char *iP_;
     bool canTilt_;
@@ -32,6 +34,8 @@ class HttpBlind {
     State currentState_;
     long timeoutInMilliseconds_;
     std::chrono::time_point<std::chrono::system_clock> timeOfLastUpdate_;
+    char statusUrl_[200];
+    HttpBlindHelper httpBlindHelper_;
 };
 
 #endif  // __HTTPBLIND_H__

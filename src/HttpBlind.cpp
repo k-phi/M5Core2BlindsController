@@ -1,5 +1,7 @@
 #include "HttpBlind.h"
 
+#include <String.h>
+
 HttpBlind::HttpBlind(BlindConfiguration &blindConfiguration,
                      IHttpClient *httpClient, long &timeoutInMilliseconds)
     : Id_(blindConfiguration.Id),
@@ -10,6 +12,10 @@ HttpBlind::HttpBlind(BlindConfiguration &blindConfiguration,
       timeoutInMilliseconds_(timeoutInMilliseconds) {
     currentCommand_ = HttpBlind::Command::NONE;
     setState(HttpBlind::State::STOPPED);
+
+    strcpy(statusUrl_, "http://");
+    strcat(statusUrl_, iP_);
+    strcat(statusUrl_, "/roller/0");
 }
 
 HttpBlind::~HttpBlind() { delete httpClient_; }
@@ -28,7 +34,7 @@ void HttpBlind::tilt() { currentCommand_ = HttpBlind::Command::TILT; }
 
 HttpBlind::State HttpBlind::getState() {
     if (isTimeoutExceeded()) {
-        // get state from shelly and setState()
+        currentState_ = getRollerStateFromShelly();
     }
     return currentState_;
 }
@@ -38,6 +44,7 @@ void HttpBlind::setState(HttpBlind::State state) {
     timeOfLastUpdate_ = std::chrono::system_clock::now();
 }
 
+// move me to helper for better testing
 bool HttpBlind::isTimeoutExceeded() {
     long durationInMilliseconds =
         std::chrono::duration_cast<std::chrono::milliseconds>(
@@ -49,4 +56,17 @@ bool HttpBlind::isTimeoutExceeded() {
         isExceeded = true;
     }
     return isExceeded;
+}
+
+HttpBlind::State HttpBlind::getRollerStateFromShelly() {
+    httpClient_->begin(statusUrl_);
+    int httpCode = httpClient_->sendRequest("GET");
+    HttpBlind::State state = HttpBlind::State::UNKNOWN;
+    if (httpCode == 200) {
+        const char *payload = httpClient_->getPayload();
+        const char *stateString = httpBlindHelper_.getStateStringFromPayload(payload);
+        // convert string to state in helper
+    }
+    httpClient_->end();
+    return state;
 }

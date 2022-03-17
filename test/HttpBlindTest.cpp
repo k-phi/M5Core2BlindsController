@@ -1,9 +1,9 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "simulators/HttpClientWrapperMock.h"
-#include "../src/HttpBlind.h"
 #include "../src/BlindConfiguration.h"
+#include "../src/HttpBlind.h"
+#include "simulators/HttpClientWrapperMock.h"
 
 using ::testing::_;
 using ::testing::AtLeast;
@@ -18,5 +18,3 @@ TEST(HttpBlindTest, canCreateHttpBlind) {
     long timeoutInMilliseconds = 100;
     HttpBlind blind(config, httpClient, timeoutInMilliseconds);
 }
-
-
