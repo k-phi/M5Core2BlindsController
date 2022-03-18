@@ -26,3 +26,43 @@ TEST(HttpBlindHelperTest, getStateStringFromPayload_getsStop) {
     helper.getStateStringFromPayload(stateString, payload);
     EXPECT_STREQ("stop", stateString);
 }
+
+TEST(HttpBlindHelperTest, getStateUrl_returnsCorrectUrl) {
+    const char *payload = "255.255.255.255";
+    HttpBlindHelper helper;
+    char url[200];
+    helper.getStateUrl(url, payload);
+    EXPECT_STREQ("http://255.255.255.255/roller/0", url);
+}
+
+TEST(HttpBlindHelperTest, getOpenUrl_returnsCorrectUrl) {
+    const char *payload = "255.255.255.255";
+    HttpBlindHelper helper;
+    char url[200];
+    helper.getOpenUrl(url, payload);
+    EXPECT_STREQ("http://255.255.255.255/roller/0/go=open", url);
+}
+
+TEST(HttpBlindHelperTest, getCloseUrl_returnsCorrectUrl) {
+    const char *payload = "255.255.255.255";
+    HttpBlindHelper helper;
+    char url[200];
+    helper.getCloseUrl(url, payload);
+    EXPECT_STREQ("http://255.255.255.255/roller/0/go=close", url);
+}
+
+TEST(HttpBlindHelperTest, getStopUrl_returnsCorrectUrl) {
+    const char *payload = "255.255.255.255";
+    HttpBlindHelper helper;
+    char url[200];
+    helper.getStopUrl(url, payload);
+    EXPECT_STREQ("http://255.255.255.255/roller/0/go=stop", url);
+}
+
+TEST(HttpBlindHelperTest, getGoToUrl_returnsCorrectUrl) {
+    const char *payload = "255.255.255.255";
+    HttpBlindHelper helper;
+    char url[200];
+    helper.getGoToUrl(url, payload, 2.000f);
+    EXPECT_STREQ("http://255.255.255.255/roller/0/go=to_pos,roller_pos=2", url);
+}

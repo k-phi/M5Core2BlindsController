@@ -11,11 +11,8 @@ HttpBlind::HttpBlind(BlindConfiguration &blindConfiguration,
       httpClient_(httpClient),
       timeoutInMilliseconds_(timeoutInMilliseconds) {
     currentCommand_ = HttpBlind::Command::NONE;
+    httpBlindHelper_.getStateUrl(statusUrl_, iP_);
     setState(HttpBlind::State::STOPPED);
-
-    strcpy(statusUrl_, "http://");
-    strcat(statusUrl_, iP_);
-    strcat(statusUrl_, "/roller/0");
 }
 
 HttpBlind::~HttpBlind() { delete httpClient_; }
