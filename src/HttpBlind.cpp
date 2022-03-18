@@ -4,9 +4,9 @@
 
 HttpBlind::HttpBlind(BlindConfiguration &blindConfiguration,
                      IHttpClient *httpClient, long &timeoutInMilliseconds)
-    : canTilt_(blindConfiguration.canTilt),
-      httpClient_(httpClient),
-      timeoutInMilliseconds_(timeoutInMilliseconds) {
+    : httpClient_(httpClient),
+      timeoutInMilliseconds_(timeoutInMilliseconds),
+      canTilt_(blindConfiguration.canTilt) {
     httpBlindHelper_.getStateUrl(statusUrl_, blindConfiguration.iP);
     httpBlindHelper_.getOpenUrl(openUrl_, blindConfiguration.iP);
     httpBlindHelper_.getCloseUrl(closeUrl_, blindConfiguration.iP);
@@ -106,7 +106,6 @@ void HttpBlind::getRollerStateFromShelly(char *state) {
     if (httpCode == 200) {
         char payload[400];
         httpClient_->getPayload(payload);
-        char stateString[40];
         httpBlindHelper_.getStateStringFromPayload(state, payload);
     } else {
         strcpy(state, "unknown");
