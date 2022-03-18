@@ -7,7 +7,7 @@ struct BlindConfiguration {
     unsigned int buttonPositionY;
     unsigned int buttonWidth;
     unsigned int buttonHeight;
-    char* iP;
+    const char* iP;
     bool canTilt;
     float tiltPositionInPercent;
 };

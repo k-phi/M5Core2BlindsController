@@ -26,7 +26,7 @@ class HttpBlind {
     bool isTimeoutExceeded();
     State getRollerStateFromShelly();
     unsigned int Id_;
-    char *iP_;
+    const char *iP_;
     bool canTilt_;
     float tiltPositionInPercent_;
     IHttpClient *httpClient_;
