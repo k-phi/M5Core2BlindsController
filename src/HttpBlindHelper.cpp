@@ -2,7 +2,7 @@
 
 #include <cstring>
 
-const char* HttpBlindHelper::getStateStringFromPayload(const char* payload) {
+void HttpBlindHelper::getStateStringFromPayload(char* state, const char* payload) {
     const char* colon;
     colon = strchr(payload, ':');
     const char* comma;
@@ -11,5 +11,5 @@ const char* HttpBlindHelper::getStateStringFromPayload(const char* payload) {
     int stateWordLenght = comma - colon - 3;
     strncpy(stateString, (colon + 2), stateWordLenght);
     stateString[stateWordLenght] = '\0';
-    return (const char*) stateString;
+    strcpy(state, stateString);
 }

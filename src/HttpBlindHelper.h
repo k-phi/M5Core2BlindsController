@@ -3,7 +3,7 @@
 
 class HttpBlindHelper {
    public:
-    const char* getStateStringFromPayload(const char* payload);
+    void getStateStringFromPayload(char* state, const char* payload);
 };
 
 #endif  // __HTTPBLINDHELPER_H__

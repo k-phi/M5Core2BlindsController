@@ -64,7 +64,8 @@ HttpBlind::State HttpBlind::getRollerStateFromShelly() {
     HttpBlind::State state = HttpBlind::State::UNKNOWN;
     if (httpCode == 200) {
         const char *payload = httpClient_->getPayload();
-        const char *stateString = httpBlindHelper_.getStateStringFromPayload(payload);
+        char stateString[40];
+        httpBlindHelper_.getStateStringFromPayload(stateString, payload);
         // convert string to state in helper
     }
     httpClient_->end();
