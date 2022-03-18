@@ -4,8 +4,8 @@
 #include <chrono>
 
 #include "BlindConfiguration.h"
-#include "IHttpClient.h"
 #include "HttpBlindHelper.h"
+#include "IHttpClient.h"
 
 class HttpBlind {
    public:
@@ -24,17 +24,21 @@ class HttpBlind {
     State getState();
     void setState(State state);
     bool isTimeoutExceeded();
-    State getRollerStateFromShelly();
-    unsigned int Id_;
-    const char *iP_;
+    void getRollerStateFromShelly(char *state);
+    State convertToState(char *state);
+    bool sendCommandToShelly(Command command);
     bool canTilt_;
-    float tiltPositionInPercent_;
+    long timeoutInMilliseconds_;
+    char statusUrl_[200];
+    char openUrl_[200];
+    char closeUrl_[200];
+    char stopUrl_[200];
+    char goToPosUrl_[200];
+    bool isClosedBeforeTilt_;
     IHttpClient *httpClient_;
     Command currentCommand_;
     State currentState_;
-    long timeoutInMilliseconds_;
     std::chrono::time_point<std::chrono::system_clock> timeOfLastUpdate_;
-    char statusUrl_[200];
     HttpBlindHelper httpBlindHelper_;
 };
 
