@@ -1,6 +1,6 @@
 #include "ApplicationFactory.h"
 
-#include "ISelectionButton.h"
+#include "hmi/ISelectionButton.h"
 #include "firmwareAbstraction/HardwareButton.h"
 #include "firmwareAbstraction/SelectionButton.h"
 #include "firmwareAbstraction/StatusBar.h"

@@ -3,7 +3,7 @@
 
 #include <M5Core2.h>
 
-#include "IStatusBar.h"
+#include "../hmi/IStatusBar.h"
 
 class StatusBar : public IStatusBar {
    public:

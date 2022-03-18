@@ -3,7 +3,7 @@
 
 #include <M5Core2.h>
 
-#include "ISelectionButton.h"
+#include "../hmi/ISelectionButton.h"
 
 class SelectionButton : public ISelectionButton {
    public:

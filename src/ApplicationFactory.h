@@ -2,8 +2,8 @@
 #define __APPLICATIONFACTORY_H__
 
 #include "BlindConfiguration.h"
-#include "BlindsControlView.h"
-#include "ISelectionButton.h"
+#include "hmi/BlindsControlView.h"
+#include "hmi/ISelectionButton.h"
 
 class ApplicationFactory {
    public:
