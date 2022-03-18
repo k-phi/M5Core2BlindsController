@@ -6,7 +6,7 @@ class IHttpClient {
     virtual ~IHttpClient(){};
     virtual bool begin(const char* url) = 0;
     virtual int sendRequest(const char* type) = 0;
-    virtual const char* getPayload() = 0; 
+    virtual void getPayload(char* payload) = 0;
     virtual void end() = 0;
 };
 

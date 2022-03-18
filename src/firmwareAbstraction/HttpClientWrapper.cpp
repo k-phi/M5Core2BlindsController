@@ -1,5 +1,7 @@
 #include "HttpClientWrapper.h"
 
+#include <cstring>
+
 HttpClientWrapper::HttpClientWrapper() { httpClient_.setReuse(true); }
 
 bool HttpClientWrapper::begin(const char* url) {
@@ -13,9 +15,9 @@ int HttpClientWrapper::sendRequest(const char* type) {
     return httpCode;
 }
 
-const char* HttpClientWrapper::getPayload() {
+void HttpClientWrapper::getPayload(char* payload) {
     String payLoad = httpClient_.getString();
-    return getPayload.c_str();
+    strcpy(payload, payLoad.c_str());
 }
 
 void HttpClientWrapper::end() { httpClient_.end(); }

@@ -11,7 +11,7 @@ class HttpClientWrapper : public IHttpClient {
     ~HttpClientWrapper(){};
     virtual bool begin(const char* url);
     virtual int sendRequest(const char* type);
-    virtual const char* getPayload();
+    virtual void getPayload(char* payload);
     virtual void end();
 
    private:
