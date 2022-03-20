@@ -26,21 +26,21 @@ void HttpBlindHelper::getOpenUrl(char* url, const char* iP)
 {
     strcpy(url, "http://");
     strcat(url, iP);
-    strcat(url, "/roller/0/go=open");
+    strcat(url, "/roller/0?go=open");
 }
 
 void HttpBlindHelper::getCloseUrl(char* url, const char* iP)
 {
     strcpy(url, "http://");
     strcat(url, iP);
-    strcat(url, "/roller/0/go=close");
+    strcat(url, "/roller/0?go=close");
 }
 
 void HttpBlindHelper::getStopUrl(char* url, const char* iP)
 {
     strcpy(url, "http://");
     strcat(url, iP);
-    strcat(url, "/roller/0/go=stop");
+    strcat(url, "/roller/0?go=stop");
 }
 
 void HttpBlindHelper::getGoToUrl(char* url, const char* iP, float positionInPercent)
@@ -48,6 +48,6 @@ void HttpBlindHelper::getGoToUrl(char* url, const char* iP, float positionInPerc
     strcpy(url, "http://");
     strcat(url, iP);
     char postfix[50];
-    sprintf(postfix, "/roller/0/go=to_pos,roller_pos=%.0f", positionInPercent);
+    sprintf(postfix, "/roller/0?go=to_pos&roller_pos=%.0f", positionInPercent);
     strcat(url, postfix);
 }

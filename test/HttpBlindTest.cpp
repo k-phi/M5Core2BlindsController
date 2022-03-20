@@ -32,7 +32,7 @@ TEST(HttpBlindTest, canCreateHttpBlind) {
 TEST(HttpBlindTest, loop_sendsOpenOnceOnSuccess) {
     BlindConfiguration config = createConfig();
     HttpClientWrapperMock *httpClient = new HttpClientWrapperMock();
-    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0/go=open"))).Times(1);
+    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0?go=open"))).Times(1);
     EXPECT_CALL(*httpClient, sendRequest(StrEq("GET"))).Times(1);
     EXPECT_CALL(*httpClient, end()).Times(1);
     ON_CALL(*httpClient, sendRequest(_)).WillByDefault(Return(200));
@@ -47,7 +47,7 @@ TEST(HttpBlindTest, loop_sendsOpenOnceOnSuccess) {
 TEST(HttpBlindTest, loop_sendsOpenAgainOnFailure) {
     BlindConfiguration config = createConfig();
     HttpClientWrapperMock *httpClient = new HttpClientWrapperMock();
-    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0/go=open"))).Times(2);
+    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0?go=open"))).Times(2);
     EXPECT_CALL(*httpClient, sendRequest(StrEq("GET"))).Times(2);
     EXPECT_CALL(*httpClient, end()).Times(2);
     ON_CALL(*httpClient, sendRequest(_)).WillByDefault(Return(500));
@@ -62,7 +62,7 @@ TEST(HttpBlindTest, loop_sendsOpenAgainOnFailure) {
 TEST(HttpBlindTest, loop_sendsCloseOnceOnSuccess) {
     BlindConfiguration config = createConfig();
     HttpClientWrapperMock *httpClient = new HttpClientWrapperMock();
-    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0/go=close"))).Times(1);
+    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0?go=close"))).Times(1);
     EXPECT_CALL(*httpClient, sendRequest(StrEq("GET"))).Times(1);
     EXPECT_CALL(*httpClient, end()).Times(1);
     ON_CALL(*httpClient, sendRequest(_)).WillByDefault(Return(200));
@@ -77,7 +77,7 @@ TEST(HttpBlindTest, loop_sendsCloseOnceOnSuccess) {
 TEST(HttpBlindTest, loop_sendsCloseAgainOnFailure) {
     BlindConfiguration config = createConfig();
     HttpClientWrapperMock *httpClient = new HttpClientWrapperMock();
-    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0/go=close"))).Times(2);
+    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0?go=close"))).Times(2);
     EXPECT_CALL(*httpClient, sendRequest(StrEq("GET"))).Times(2);
     EXPECT_CALL(*httpClient, end()).Times(2);
     ON_CALL(*httpClient, sendRequest(_)).WillByDefault(Return(500));
@@ -92,7 +92,7 @@ TEST(HttpBlindTest, loop_sendsCloseAgainOnFailure) {
 TEST(HttpBlindTest, loop_sendsStopOnceOnSuccess) {
     BlindConfiguration config = createConfig();
     HttpClientWrapperMock *httpClient = new HttpClientWrapperMock();
-    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0/go=stop"))).Times(1);
+    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0?go=stop"))).Times(1);
     EXPECT_CALL(*httpClient, sendRequest(StrEq("GET"))).Times(1);
     EXPECT_CALL(*httpClient, end()).Times(1);
     ON_CALL(*httpClient, sendRequest(_)).WillByDefault(Return(200));
@@ -107,7 +107,7 @@ TEST(HttpBlindTest, loop_sendsStopOnceOnSuccess) {
 TEST(HttpBlindTest, loop_sendsStopAgainOnFailure) {
     BlindConfiguration config = createConfig();
     HttpClientWrapperMock *httpClient = new HttpClientWrapperMock();
-    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0/go=stop"))).Times(2);
+    EXPECT_CALL(*httpClient, begin(StrEq("http://255.255.255.255/roller/0?go=stop"))).Times(2);
     EXPECT_CALL(*httpClient, sendRequest(StrEq("GET"))).Times(2);
     EXPECT_CALL(*httpClient, end()).Times(2);
     ON_CALL(*httpClient, sendRequest(_)).WillByDefault(Return(500));

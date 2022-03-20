@@ -40,7 +40,7 @@ TEST(HttpBlindHelperTest, getOpenUrl_returnsCorrectUrl) {
     HttpBlindHelper helper;
     char url[200];
     helper.getOpenUrl(url, payload);
-    EXPECT_STREQ("http://255.255.255.255/roller/0/go=open", url);
+    EXPECT_STREQ("http://255.255.255.255/roller/0?go=open", url);
 }
 
 TEST(HttpBlindHelperTest, getCloseUrl_returnsCorrectUrl) {
@@ -48,7 +48,7 @@ TEST(HttpBlindHelperTest, getCloseUrl_returnsCorrectUrl) {
     HttpBlindHelper helper;
     char url[200];
     helper.getCloseUrl(url, payload);
-    EXPECT_STREQ("http://255.255.255.255/roller/0/go=close", url);
+    EXPECT_STREQ("http://255.255.255.255/roller/0?go=close", url);
 }
 
 TEST(HttpBlindHelperTest, getStopUrl_returnsCorrectUrl) {
@@ -56,7 +56,7 @@ TEST(HttpBlindHelperTest, getStopUrl_returnsCorrectUrl) {
     HttpBlindHelper helper;
     char url[200];
     helper.getStopUrl(url, payload);
-    EXPECT_STREQ("http://255.255.255.255/roller/0/go=stop", url);
+    EXPECT_STREQ("http://255.255.255.255/roller/0?go=stop", url);
 }
 
 TEST(HttpBlindHelperTest, getGoToUrl_returnsCorrectUrl) {
@@ -64,5 +64,5 @@ TEST(HttpBlindHelperTest, getGoToUrl_returnsCorrectUrl) {
     HttpBlindHelper helper;
     char url[200];
     helper.getGoToUrl(url, payload, 2.000f);
-    EXPECT_STREQ("http://255.255.255.255/roller/0/go=to_pos,roller_pos=2", url);
+    EXPECT_STREQ("http://255.255.255.255/roller/0?go=to_pos&roller_pos=2", url);
 }
