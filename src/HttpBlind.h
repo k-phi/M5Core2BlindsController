@@ -1,7 +1,10 @@
 #ifndef __HTTPBLIND_H__
 #define __HTTPBLIND_H__
 
-#undef min // Avoid Arduino compiler issue with min
+#ifdef _M5Core2_H_
+#undef min  // Avoid Arduino compiler issue with redefinition of min in chrono
+#endif
+
 #include <chrono>
 
 #include "BlindConfiguration.h"
