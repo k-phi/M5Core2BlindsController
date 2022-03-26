@@ -4,7 +4,8 @@
 
 HttpBlind::HttpBlind(BlindConfiguration &blindConfiguration,
                      IHttpClient *httpClient, long &timeoutInMilliseconds)
-    : httpClient_(httpClient),
+    : id_(blindConfiguration.Id),
+      httpClient_(httpClient),
       timeoutInMilliseconds_(timeoutInMilliseconds),
       canTilt_(blindConfiguration.canTilt) {
     httpBlindHelper_.getStateUrl(statusUrl_, blindConfiguration.iP);
@@ -19,44 +20,28 @@ HttpBlind::HttpBlind(BlindConfiguration &blindConfiguration,
 
 HttpBlind::~HttpBlind() { delete httpClient_; }
 
+unsigned int HttpBlind::getId() { return id_; }
+
 void HttpBlind::loop() {
     switch (currentCommand_) {
         case HttpBlind::Command::OPEN: {
-            if (sendCommandToShelly(HttpBlind::Command::OPEN)) {
-                setState(HttpBlind::State::OPENING);
-                currentCommand_ = HttpBlind::Command::NONE;
-            }
+            loopOpen();
             break;
         }
         case HttpBlind::Command::CLOSE: {
-            if (sendCommandToShelly(HttpBlind::Command::CLOSE)) {
-                setState(HttpBlind::State::CLOSING);
-                currentCommand_ = HttpBlind::Command::NONE;
-            }
+            loopClose();
             break;
         }
         case HttpBlind::Command::STOP: {
-            if (sendCommandToShelly(HttpBlind::Command::STOP)) {
-                setState(HttpBlind::State::STOPPED);
-                currentCommand_ = HttpBlind::Command::NONE;
-            }
+            loopStop();
+
             break;
         }
         case HttpBlind::Command::TILT: {
-            if (!canTilt_) {
+            if (canTilt_) {
+                loopTilt();
+            } else {
                 currentCommand_ = HttpBlind::Command::NONE;
-            } else if (!isClosedBeforeTilt_) {
-                if (sendCommandToShelly(HttpBlind::Command::CLOSE)) {
-                    setState(HttpBlind::State::CLOSING);
-                    isClosedBeforeTilt_ = true;
-                }
-            } else if (isClosedBeforeTilt_ &&
-                       getState() == HttpBlind::State::STOPPED) {
-                if (sendCommandToShelly(HttpBlind::Command::TILT)) {
-                    setState(HttpBlind::State::OPENING);
-                    isClosedBeforeTilt_ = false;
-                    currentCommand_ = HttpBlind::Command::NONE;
-                }
             }
             break;
         }
@@ -151,4 +136,58 @@ bool HttpBlind::sendCommandToShelly(HttpBlind::Command command) {
     httpClient_->end();
 
     return isSuccessful;
+}
+
+void HttpBlind::loopOpen() {
+    if (getState() == HttpBlind::State::OPENING) {
+        currentCommand_ = HttpBlind::Command::NONE;
+    } else {
+        if (sendCommandToShelly(HttpBlind::Command::OPEN)) {
+            setState(HttpBlind::State::OPENING);
+            currentCommand_ = HttpBlind::Command::NONE;
+        }
+    }
+}
+
+void HttpBlind::loopClose() {
+    if (getState() == HttpBlind::State::CLOSING) {
+        currentCommand_ = HttpBlind::Command::NONE;
+    } else {
+        if (sendCommandToShelly(HttpBlind::Command::CLOSE)) {
+            setState(HttpBlind::State::CLOSING);
+            currentCommand_ = HttpBlind::Command::NONE;
+        }
+    }
+}
+
+void HttpBlind::loopStop() {
+    if (getState() == HttpBlind::State::STOPPED) {
+        currentCommand_ = HttpBlind::Command::NONE;
+    } else {
+        if (sendCommandToShelly(HttpBlind::Command::STOP)) {
+            setState(HttpBlind::State::STOPPED);
+            currentCommand_ = HttpBlind::Command::NONE;
+        }
+    }
+}
+
+void HttpBlind::loopTilt() {
+    if (!isClosedBeforeTilt_) {
+        if (getState() == HttpBlind::State::CLOSING) {
+            isClosedBeforeTilt_ = true;
+        } else {
+            if (sendCommandToShelly(HttpBlind::Command::CLOSE)) {
+                setState(HttpBlind::State::CLOSING);
+                isClosedBeforeTilt_ = true;
+            }
+        }
+    } else {
+        if (getState() == HttpBlind::State::STOPPED) {
+            if (sendCommandToShelly(HttpBlind::Command::TILT)) {
+                setState(HttpBlind::State::OPENING);
+                currentCommand_ = HttpBlind::Command::NONE;
+                isClosedBeforeTilt_ = false;
+            }
+        }
+    }
 }

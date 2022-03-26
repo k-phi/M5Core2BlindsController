@@ -9,18 +9,21 @@
 
 #include "BlindConfiguration.h"
 #include "HttpBlindHelper.h"
+#include "IBlind.h"
 #include "IHttpClient.h"
+#include "ILooper.h"
 
-class HttpBlind {
+class HttpBlind : public IBlind, public ILooper {
    public:
     HttpBlind(BlindConfiguration &blindConfiguration, IHttpClient *httpClient,
               long &timoutInMilliseconds);
-    ~HttpBlind();
-    void loop();
-    void open();
-    void close();
-    void stop();
-    void tilt();
+    virtual ~HttpBlind();
+    virtual unsigned int getId();
+    virtual void loop();
+    virtual void open();
+    virtual void close();
+    virtual void stop();
+    virtual void tilt();
 
    private:
     enum Command { NONE, OPEN, CLOSE, STOP, TILT };
@@ -31,6 +34,11 @@ class HttpBlind {
     void getRollerStateFromShelly(char *state);
     State convertToState(char *state);
     bool sendCommandToShelly(Command command);
+    void loopOpen();
+    void loopClose();
+    void loopStop();
+    void loopTilt();
+    unsigned int id_;
     IHttpClient *httpClient_;
     long timeoutInMilliseconds_;
     bool canTilt_;

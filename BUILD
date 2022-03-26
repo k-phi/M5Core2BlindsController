@@ -7,8 +7,8 @@ cc_library(
 
 cc_library(
   name = "application",
-  hdrs = ["src/IDevice.h", "src/IDeviceData.h", "src/IHttpClient.h", "src/HttpBlind.h", "src/BlindConfiguration.h", "src/HttpBlindHelper.h", "src/IBlindCommandsContract.h"],
-  srcs = ["src/HttpBlind.cpp", "src/HttpBlindHelper.cpp"],
+  hdrs = ["src/IDevice.h", "src/IDeviceData.h", "src/IHttpClient.h", "src/HttpBlind.h", "src/BlindConfiguration.h", "src/HttpBlindHelper.h", "src/IBlinds.h", "src/BlindsAccess.h", "src/IBlind.h", "src/ILooper.h"],
+  srcs = ["src/HttpBlind.cpp", "src/HttpBlindHelper.cpp", "src/BlindsAccess.cpp"],
 )
 
 cc_library(
