@@ -8,7 +8,7 @@ class IDevice {
     virtual bool isWiFiConnected() = 0;
     virtual void powerOff() = 0;
     virtual float getBatteryLevelInPercent() = 0;
-    virtual uint8_t getBatteryWarningLevel() = 0;
+    virtual unsigned int getBatteryWarningLevel() = 0;
 };
 
 #endif  // __IDEVICE_H__

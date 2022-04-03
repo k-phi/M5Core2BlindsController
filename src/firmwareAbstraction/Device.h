@@ -14,7 +14,7 @@ class Device : public IDevice {
     virtual bool isWiFiConnected();
     virtual void powerOff();
     virtual float getBatteryLevelInPercent();
-    virtual uint8_t getBatteryWarningLevel();
+    virtual unsigned int getBatteryWarningLevel();
 
    private:
     char *ssid_;

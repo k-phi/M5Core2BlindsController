@@ -33,7 +33,7 @@ float Device::getBatteryLevelInPercent() {
     return batteryLevel;
 }
 
-uint8_t Device::getBatteryWarningLevel() {
-    uint8_t warningLevel = M5.Axp.GetWarningLevel();
+unsigned int Device::getBatteryWarningLevel() {
+    unsigned int warningLevel = M5.Axp.GetWarningLevel();
     return warningLevel;
 }
