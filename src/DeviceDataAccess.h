@@ -2,6 +2,7 @@
 #define __DEVICEDATAACCESS_H__
 
 #include <map>
+
 #include "BlindConfiguration.h"
 #include "IDeviceData.h"
 #include "IEnablable.h"
