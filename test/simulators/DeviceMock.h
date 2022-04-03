@@ -9,7 +9,7 @@ class DeviceMock : public IDevice {
     MOCK_METHOD(void, connectWiFi, (), (override));
     MOCK_METHOD(bool, isWiFiConnected, (), (override));
     MOCK_METHOD(void, powerOff, (), (override));
-    MOCK_METHOD(float, getBatteryLevel, (), (override));
+    MOCK_METHOD(float, getBatteryLevelInPercent, (), (override));
     MOCK_METHOD(uint8_t, getBatteryWarningLevel, (), (override));
 };
 

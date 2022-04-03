@@ -13,7 +13,7 @@ class Device : public IDevice {
     virtual void connectWiFi();
     virtual bool isWiFiConnected();
     virtual void powerOff();
-    virtual float getBatteryLevel();
+    virtual float getBatteryLevelInPercent();
     virtual uint8_t getBatteryWarningLevel();
 
    private:

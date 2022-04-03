@@ -28,7 +28,7 @@ void Device::powerOff() {
     M5.shutdown();
 }
 
-float Device::getBatteryLevel() {
+float Device::getBatteryLevelInPercent() {
     float batteryLevel = M5.Axp.GetBatteryLevel();
     return batteryLevel;
 }
