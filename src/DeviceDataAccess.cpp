@@ -41,7 +41,10 @@ void DeviceDataAccess::save() {
         bool isEnabled = it->second;
         char key[10];
         convertIdToKey(id, key);
-        deviceData_->saveBool(key, isEnabled);
+        bool storedValue = deviceData_->loadBool(key);
+        if (isEnabled != storedValue) {
+            deviceData_->saveBool(key, isEnabled);
+        }
     }
 }
 

@@ -79,10 +79,15 @@ TEST(DeviceDataAccessTest, save_doesNotCallDeviceDataIfCachIsEmpty) {
     access.save();
 }
 
-TEST(DeviceDataAccessTest, save_savesCachedStatesToDeviceData) {
+TEST(DeviceDataAccessTest, save_savesCachedStatesToDeviceDataIfDifferent) {
     DeviceDataMock deviceData;
-    EXPECT_CALL(deviceData, saveBool(StrEq("69"), false)).Times(1);
+    ON_CALL(deviceData, loadBool(StrEq("42"))).WillByDefault(Return(false));
+    EXPECT_CALL(deviceData, loadBool(StrEq("42"))).Times(1);
     EXPECT_CALL(deviceData, saveBool(StrEq("42"), true)).Times(1);
+
+    ON_CALL(deviceData, loadBool(StrEq("69"))).WillByDefault(Return(false));
+    EXPECT_CALL(deviceData, loadBool(StrEq("69"))).Times(1);
+    EXPECT_CALL(deviceData, saveBool(StrEq("69"), false)).Times(0);
     EXPECT_CALL(deviceData, close()).Times(1);
     DeviceDataAccess access(&deviceData);
 
