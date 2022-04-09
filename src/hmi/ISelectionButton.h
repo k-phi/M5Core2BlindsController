@@ -9,6 +9,7 @@ class ISelectionButton {
     virtual void select() = 0;
     virtual void unselect() = 0;
     virtual bool isSelected() = 0;
+    virtual unsigned int getId() = 0;
 };
 
 #endif  // __ISELECTIONBUTTON_H__

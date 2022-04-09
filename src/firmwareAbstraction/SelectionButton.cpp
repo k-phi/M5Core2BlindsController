@@ -1,6 +1,8 @@
 #include "SelectionButton.h"
 
-SelectionButton::SelectionButton(int x, int y, int width, int height) {
+SelectionButton::SelectionButton(int x, int y, int width, int height,
+                                 unsigned int id)
+    : id_(id) {
     ButtonColors onColor = {BLACK, YELLOW, YELLOW};
     ButtonColors offColor = {YELLOW, BLACK, YELLOW};
     button_ = new Button(x, y, width, height, false, "", onColor, offColor);
@@ -24,3 +26,5 @@ void SelectionButton::unselect() {
 }
 
 bool SelectionButton::isSelected() { return isSelected_; }
+
+unsigned int SelectionButton::getId() { return id_; }

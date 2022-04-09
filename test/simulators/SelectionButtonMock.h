@@ -11,6 +11,7 @@ class SelectionButtonMock : public ISelectionButton {
     MOCK_METHOD(void, select, (), (override));
     MOCK_METHOD(void, unselect, (), (override));
     MOCK_METHOD(bool, isSelected, (), (override));
+    MOCK_METHOD(unsigned int, getId, (), (override));
 };
 
 #endif  // __SELECTIONBUTTONMOCK_H__

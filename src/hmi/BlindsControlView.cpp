@@ -3,9 +3,9 @@
 BlindsControlView::BlindsControlView(
     ITouchButton *goToTiltPositionButton, ITouchButton *powerOffButton,
     ITouchButton *toggleAllSelectionButton, IStatusBar *statusBar,
-    ISelectionButton **blindSelectionButtons, unsigned int numberOfSelectionButtons,
-    ITouchButton *openButton, ITouchButton *stopButton,
-    ITouchButton *closeButton)
+    ISelectionButton **blindSelectionButtons,
+    unsigned int numberOfSelectionButtons, ITouchButton *openButton,
+    ITouchButton *stopButton, ITouchButton *closeButton)
     : goToTiltPositionButton_(goToTiltPositionButton),
       powerOffButton_(powerOffButton),
       toggleAllSelectionButton_(toggleAllSelectionButton),
@@ -17,8 +17,8 @@ BlindsControlView::BlindsControlView(
     numberOfBlindSelectionButtons_ = numberOfSelectionButtons;
     blindSelectionButtons_ =
         new ISelectionButton *[numberOfBlindSelectionButtons_];
-    for (unsigned int buttonIndex = 0; buttonIndex < numberOfBlindSelectionButtons_;
-         buttonIndex++) {
+    for (unsigned int buttonIndex = 0;
+         buttonIndex < numberOfBlindSelectionButtons_; buttonIndex++) {
         *(blindSelectionButtons_ + buttonIndex) =
             blindSelectionButtons[buttonIndex];
     }
@@ -32,8 +32,8 @@ BlindsControlView::~BlindsControlView() {
     delete openButton_;
     delete stopButton_;
     delete closeButton_;
-    for (unsigned int buttonIndex = 0; buttonIndex < numberOfBlindSelectionButtons_;
-         buttonIndex++) {
+    for (unsigned int buttonIndex = 0;
+         buttonIndex < numberOfBlindSelectionButtons_; buttonIndex++) {
         delete *(blindSelectionButtons_ + buttonIndex);
     }
     delete blindSelectionButtons_;
@@ -45,8 +45,8 @@ void BlindsControlView::load() {
     toggleAllSelectionButton_->load();
     statusBar_->load();
 
-    for (unsigned int buttonIndex = 0; buttonIndex < numberOfBlindSelectionButtons_;
-         buttonIndex++) {
+    for (unsigned int buttonIndex = 0;
+         buttonIndex < numberOfBlindSelectionButtons_; buttonIndex++) {
         ISelectionButton *button = *(blindSelectionButtons_ + buttonIndex);
         if (button) {
             button->load();
@@ -70,12 +70,17 @@ ITouchButton *BlindsControlView::getToggleAllSelectionButton() {
 
 IStatusBar *BlindsControlView::getStatusBar() { return statusBar_; }
 
-ISelectionButton *BlindsControlView::getBlindSelectionButton(unsigned int buttonId) {
-    if (0 <= buttonId && buttonId < numberOfBlindSelectionButtons_) {
-        return *(blindSelectionButtons_ + buttonId);
-    } else {
-        return nullptr;
+ISelectionButton *BlindsControlView::getBlindSelectionButton(
+    unsigned int buttonId) {
+    ISelectionButton *matchingButton = nullptr;
+    for (unsigned int buttonIndex = 0;
+         buttonIndex < numberOfBlindSelectionButtons_; buttonIndex++) {
+        ISelectionButton *button = *(blindSelectionButtons_ + buttonIndex);
+        if (button && button->getId() == buttonId) {
+            matchingButton = button;
+        }
     }
+    return matchingButton;
 }
 
 ITouchButton *BlindsControlView::getOpenButton() { return openButton_; }
