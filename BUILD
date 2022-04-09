@@ -7,8 +7,9 @@ cc_library(
 
 cc_library(
   name = "application",
-  hdrs = ["src/IDevice.h", "src/IDeviceData.h", "src/IHttpClient.h", "src/HttpBlind.h", "src/BlindConfiguration.h", "src/HttpBlindHelper.h", "src/IBlinds.h", "src/BlindsAccess.h", "src/IBlind.h", "src/ILooper.h", "src/IEnablable.h", "src/IPersistable.h", "src/DeviceDataAccess.h", "src/DeviceAccess.h", "src/DeviceManager.h", "src/BlindsManager.h"],
-  srcs = ["src/HttpBlind.cpp", "src/HttpBlindHelper.cpp", "src/BlindsAccess.cpp", "src/DeviceDataAccess.cpp", "src/DeviceAccess.cpp", "src/DeviceManager.cpp", "src/BlindsManager.cpp"],
+  hdrs = ["src/IDevice.h", "src/IDeviceData.h", "src/IHttpClient.h", "src/HttpBlind.h", "src/BlindConfiguration.h", "src/HttpBlindHelper.h", "src/IBlinds.h", "src/BlindsAccess.h", "src/IBlind.h", "src/ILooper.h", "src/IEnablable.h", "src/IPersistable.h", "src/DeviceDataAccess.h", "src/DeviceAccess.h", "src/DeviceManager.h", "src/BlindsManager.h", "src/BlindsControlViewController.h"],
+  srcs = ["src/HttpBlind.cpp", "src/HttpBlindHelper.cpp", "src/BlindsAccess.cpp", "src/DeviceDataAccess.cpp", "src/DeviceAccess.cpp", "src/DeviceManager.cpp", "src/BlindsManager.cpp", "src/BlindsControlViewController.cpp"],
+  deps = ["hmi"],
 )
 
 cc_library(
