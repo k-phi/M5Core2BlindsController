@@ -3,7 +3,7 @@
 
 #include <HTTPClient.h>
 
-#include "IHttpClient.h"
+#include "../backend/IHttpClient.h"
 
 class HttpClientWrapper : public IHttpClient {
    public:

@@ -3,7 +3,7 @@
 
 #include <WiFiMulti.h>
 
-#include "IDevice.h"
+#include "../backend/IDevice.h"
 
 class Device : public IDevice {
    public:
