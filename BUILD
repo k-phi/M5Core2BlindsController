@@ -1,6 +1,6 @@
 cc_library(
   name = "application",
-  hdrs = ["src/BlindConfiguration.h"],
+  hdrs = ["src/BlindConfiguration.h", "src/ApplicationConfiguration.h"],
 )
 
 cc_library(
