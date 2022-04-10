@@ -7,8 +7,8 @@
 
 class SelectionButton : public ISelectionButton {
    public:
-    virtual ~SelectionButton(){};
     SelectionButton(int x, int y, int width, int height, unsigned int id);
+    virtual ~SelectionButton();
     virtual void load();
     virtual bool wasPressed();
     virtual void select();

@@ -9,6 +9,8 @@ SelectionButton::SelectionButton(int x, int y, int width, int height,
     select();
 }
 
+SelectionButton::~SelectionButton() { delete button_; }
+
 void SelectionButton::load() { button_->draw(); }
 
 bool SelectionButton::wasPressed() { return button_->wasPressed(); }
