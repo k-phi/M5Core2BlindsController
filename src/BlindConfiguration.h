@@ -2,7 +2,7 @@
 #define __BLINDCONFIGURATION_H__
 
 struct BlindConfiguration {
-    unsigned int Id;
+    unsigned int id;
     unsigned int buttonPositionX;
     unsigned int buttonPositionY;
     unsigned int buttonWidth;
@@ -11,4 +11,5 @@ struct BlindConfiguration {
     bool canTilt;
     float tiltPositionInPercent;
 };
+
 #endif  // __BLINDCONFIGURATION_H__

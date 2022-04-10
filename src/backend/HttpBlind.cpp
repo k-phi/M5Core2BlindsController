@@ -4,7 +4,7 @@
 
 HttpBlind::HttpBlind(BlindConfiguration &blindConfiguration,
                      IHttpClient *httpClient, long &timeoutInMilliseconds)
-    : id_(blindConfiguration.Id),
+    : id_(blindConfiguration.id),
       httpClient_(httpClient),
       timeoutInMilliseconds_(timeoutInMilliseconds),
       canTilt_(blindConfiguration.canTilt) {

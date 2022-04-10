@@ -18,7 +18,7 @@ using ::testing::StrEq;
 
 BlindConfiguration createConfig() {
     BlindConfiguration config;
-    config.Id = 5;
+    config.id = 5;
     config.iP = "255.255.255.255";
     config.canTilt = true;
     config.tiltPositionInPercent = 2.0f;
@@ -37,7 +37,7 @@ TEST(HttpBlindTest, getId_returnsCorrectId) {
     HttpClientWrapperMock httpClient;
     long timeoutInMilliseconds = 10;
     HttpBlind blind(config, &httpClient, timeoutInMilliseconds);
-    EXPECT_EQ(config.Id, blind.getId());
+    EXPECT_EQ(config.id, blind.getId());
 }
 
 TEST(HttpBlindTest, loop_sendsOpenOnceIfSentSuccessfully) {
