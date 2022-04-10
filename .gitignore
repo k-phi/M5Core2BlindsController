@@ -3,3 +3,6 @@
 
 #Bazel
 bazel*
+
+#IDE
+.vscode/*
