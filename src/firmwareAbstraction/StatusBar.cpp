@@ -35,6 +35,15 @@ void StatusBar::setBatteryLevel(float batteryLevelInPercent) {
     char buffer[50];
     sprintf(buffer, "%.0f%%", batteryLevelInPercent);
     batteryStatus_->setLabel(buffer);
+
+    if (0.0f <= batteryLevelInPercent && batteryLevelInPercent < 10.0f) {
+        batteryStatus_->off = {BLACK, RED, BLACK};
+    } else if (10.0f <= batteryLevelInPercent && batteryLevelInPercent < 20.0f) {
+        batteryStatus_->off = {BLACK, ORANGE, BLACK};
+    } else {
+        batteryStatus_->off = {BLACK, GREEN, BLACK};
+    }
+    
     batteryStatus_->draw();
 }
 
@@ -46,8 +55,10 @@ void StatusBar::setStatusMessage(const char* message) {
 void StatusBar::setWiFiConnectionStatus(bool isConnected) {
     if (isConnected) {
         wiFiStatus_->setLabel("Online");
+        batteryStatus_->off = {BLACK, GREEN, BLACK};
     } else {
         wiFiStatus_->setLabel("Offline");
+        batteryStatus_->off = {BLACK, RED, BLACK};
     }
     wiFiStatus_->draw();
 }
