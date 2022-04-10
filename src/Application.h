@@ -1,7 +1,7 @@
 #ifndef __APPLICATION_H__
 #define __APPLICATION_H__
 
-#include "BlindsControlViewController.h"
+#include "hmi/BlindsControlViewController.h"
 
 class Application {
    public:
