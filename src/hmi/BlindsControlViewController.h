@@ -7,11 +7,11 @@
 
 #include <chrono>
 
-#include "IBlind.h"
-#include "IDevice.h"
-#include "IEnablable.h"
-#include "ILooper.h"
-#include "hmi/BlindsControlView.h"
+#include "../backend/IBlind.h"
+#include "../backend/IDevice.h"
+#include "../backend/IEnablable.h"
+#include "../backend/ILooper.h"
+#include "BlindsControlView.h"
 
 class BlindsControlViewController : public ILooper {
    public:

@@ -5,9 +5,9 @@
 #include <thread>
 
 #include "../src/BlindConfiguration.h"
-#include "../src/HttpBlind.h"
-#include "../src/IBlind.h"
-#include "../src/ILooper.h"
+#include "../src/backend/HttpBlind.h"
+#include "../src/backend/IBlind.h"
+#include "../src/backend/ILooper.h"
 #include "simulators/HttpClientWrapperMock.h"
 
 using ::testing::_;

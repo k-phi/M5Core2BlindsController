@@ -1,7 +1,7 @@
 #ifndef __HTTPCLIENTWRAPPERMOCK_H__
 #define __HTTPCLIENTWRAPPERMOCK_H__
 
-#include "../../src/IHttpClient.h"
+#include "../../src/backend/IHttpClient.h"
 #include "gmock/gmock.h"
 
 class HttpClientWrapperMock : public IHttpClient {

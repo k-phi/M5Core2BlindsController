@@ -1,7 +1,7 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "../src/BlindsManager.h"
+#include "../src/backend/BlindsManager.h"
 #include "simulators/BlindsMock.h"
 #include "simulators/DeviceMock.h"
 #include "simulators/EnablableMock.h"

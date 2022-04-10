@@ -1,7 +1,7 @@
 #ifndef __BLINDSMOCK_H__
 #define __BLINDSMOCK_H__
 
-#include "../../src/IBlinds.h"
+#include "../../src/backend/IBlinds.h"
 #include "gmock/gmock.h"
 
 class BlindsMock : public IBlinds {

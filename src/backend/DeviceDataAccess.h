@@ -3,7 +3,7 @@
 
 #include <map>
 
-#include "BlindConfiguration.h"
+#include "../BlindConfiguration.h"
 #include "IDeviceData.h"
 #include "IEnablable.h"
 #include "IPersistable.h"

@@ -1,7 +1,7 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "../src/DeviceDataAccess.h"
+#include "../src/backend/DeviceDataAccess.h"
 #include "simulators/DeviceDataMock.h"
 
 using ::testing::_;

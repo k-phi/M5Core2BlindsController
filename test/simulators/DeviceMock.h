@@ -1,7 +1,7 @@
 #ifndef __DEVICEMOCK_H__
 #define __DEVICEMOCK_H__
 
-#include "../../src/IDevice.h"
+#include "../../src/backend/IDevice.h"
 #include "gmock/gmock.h"
 
 class DeviceMock : public IDevice {

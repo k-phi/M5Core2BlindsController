@@ -1,7 +1,7 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "../src/DeviceAccess.h"
+#include "../src/backend/DeviceAccess.h"
 #include "simulators/DeviceMock.h"
 
 using ::testing::Return;

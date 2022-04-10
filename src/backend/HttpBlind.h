@@ -7,7 +7,7 @@
 
 #include <chrono>
 
-#include "BlindConfiguration.h"
+#include "../BlindConfiguration.h"
 #include "HttpBlindHelper.h"
 #include "IBlind.h"
 #include "IHttpClient.h"

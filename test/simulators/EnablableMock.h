@@ -1,7 +1,7 @@
 #ifndef __ENABLABLEMOCK_H__
 #define __ENABLABLEMOCK_H__
 
-#include "../../src/IEnablable.h"
+#include "../../src/backend/IEnablable.h"
 #include "gmock/gmock.h"
 
 class EnablableMock : public IEnablable {

@@ -1,7 +1,7 @@
 #ifndef __LOOPERMOCK_H__
 #define __LOOPERMOCK_H__
 
-#include "../../src/ILooper.h"
+#include "../../src/backend/ILooper.h"
 #include "gmock/gmock.h"
 
 class LooperMock : public ILooper {

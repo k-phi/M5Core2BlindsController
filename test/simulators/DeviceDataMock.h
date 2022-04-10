@@ -1,7 +1,7 @@
 #ifndef __DEVICEDATAMOCK_H__
 #define __DEVICEDATAMOCK_H__
 
-#include "../../src/IDeviceData.h"
+#include "../../src/backend/IDeviceData.h"
 #include "gmock/gmock.h"
 
 class DeviceDataMock : public IDeviceData {

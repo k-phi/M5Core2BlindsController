@@ -1,7 +1,7 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "../src/BlindsAccess.h"
+#include "../src/backend/BlindsAccess.h"
 #include "simulators/BlindMock.h"
 #include "simulators/LooperMock.h"
 

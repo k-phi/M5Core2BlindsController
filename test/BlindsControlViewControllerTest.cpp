@@ -4,7 +4,7 @@
 #include <chrono>
 #include <thread>
 
-#include "../src/BlindsControlViewController.h"
+#include "../src/hmi/BlindsControlViewController.h"
 #include "../src/hmi/BlindsControlView.h"
 #include "simulators/BlindMock.h"
 #include "simulators/DeviceMock.h"
