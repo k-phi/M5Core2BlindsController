@@ -1,45 +1,59 @@
 #include "ApplicationFactory.h"
 
-#include "hmi/ISelectionButton.h"
 #include "firmwareAbstraction/HardwareButton.h"
 #include "firmwareAbstraction/SelectionButton.h"
 #include "firmwareAbstraction/StatusBar.h"
 #include "firmwareAbstraction/TouchButton.h"
 
-BlindsControlView *ApplicationFactory::createBlindsControlView(
+ApplicationFactory::~ApplicationFactory()
+{
+    
+}
+
+Application *ApplicationFactory::createApplication(
+    ApplicationConfiguration *applicationConfiugration,
     BlindConfiguration *blindConfigurations, unsigned int numberOfConfigs) {
+    applicationConfiguration_ = applicationConfiugration;
+    blindConfigurations_ = blindConfigurations;
+    numberOfConfigs_ = numberOfConfigs;
+
+    createBlindsControlView();
+    return nullptr;
+}
+
+void ApplicationFactory::createBlindsControlView() {
     int screenWidth = 320;
     int buttonHeight = 30;
-    TouchButton *goToTiltPositionButton =
-        new TouchButton(0, 0, 106, buttonHeight, "Tilt");
-    TouchButton *powerOffButton =
-        new TouchButton(106, 0, 106, buttonHeight, "Poff");
-    TouchButton *toggleAllSelectionButton =
-        new TouchButton(211, 0, 108, buttonHeight, "None");
-    StatusBar *statusBar =
-        new StatusBar(0, buttonHeight, screenWidth, buttonHeight);
 
-    ISelectionButton *selectionButtons[numberOfConfigs];
-    for (unsigned int configIndex = 0; configIndex < numberOfConfigs;
+    powerOffButton_ = new TouchButton(106, 0, 106, buttonHeight, "Poff");
+    toggleAllSelectionButton_ =
+        new TouchButton(211, 0, 108, buttonHeight, "None");
+    statusBar_ = new StatusBar(0, buttonHeight, screenWidth, buttonHeight);
+
+    selectionButtons_ = new ISelectionButton *[numberOfConfigs_];
+    for (unsigned int configIndex = 0; configIndex < numberOfConfigs_;
          configIndex++) {
-        *(selectionButtons + configIndex) =
-            createSelectionButton(*(blindConfigurations + configIndex));
+        *(selectionButtons_ + configIndex) =
+            createSelectionButton(*(blindConfigurations_ + configIndex));
     }
 
-    HardwareButton *openButton = new HardwareButton("Open", ButtonType::A);
-    HardwareButton *stopButton = new HardwareButton("Stop", ButtonType::B);
-    HardwareButton *closeButton = new HardwareButton("Close", ButtonType::C);
+    openButton_ = new HardwareButton("Open", ButtonType::A);
+    stopButton_ = new HardwareButton("Stop", ButtonType::B);
+    closeButton_ = new HardwareButton("Close", ButtonType::C);
+    tiltButton_ = new TouchButton(0, 0, 106, buttonHeight, "Tilt");
 
-    BlindsControlView *view = new BlindsControlView(
-        goToTiltPositionButton, powerOffButton, toggleAllSelectionButton, statusBar,
-        selectionButtons, numberOfConfigs, openButton, stopButton, closeButton);
-    return view;
+    blindsControlView_ = new BlindsControlView(
+        tiltButton_, powerOffButton_, toggleAllSelectionButton_, statusBar_,
+        selectionButtons_, numberOfConfigs_, openButton_, stopButton_,
+        closeButton_);
 }
 
 ISelectionButton *ApplicationFactory::createSelectionButton(
     BlindConfiguration &blindconfiguration) {
     SelectionButton *button = new SelectionButton(
         blindconfiguration.buttonPositionX, blindconfiguration.buttonPositionY,
-        blindconfiguration.buttonWidth, blindconfiguration.buttonHeight);
+        blindconfiguration.buttonWidth, blindconfiguration.buttonHeight, blindconfiguration.id);
     return button;
 }
+
+
