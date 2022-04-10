@@ -28,19 +28,19 @@ class BlindsControlViewController : public ILooper {
    private:
     unsigned int *blindIds_;
     unsigned int numberOfIds_;
+    BlindsControlView *view_;
+    IDevice *device_;
+    IEnablable *enablable_;
+    IBlind *blind_;
+    ILooper *looper_;
+    long idleTimeoutInMilliseconds_;
     bool areAllBlindsSelected_;
     bool isAnyButtonPressed_;
     bool isWifiConnected_;
     float batteryLevelInPercent_;
     unsigned int batteryWarningLevel_;
     char statusMessage_[20];
-    long idleTimeoutInMilliseconds_;
     std::chrono::time_point<std::chrono::system_clock> timeOfLastButtonPress_;
-    BlindsControlView *view_;
-    IDevice *device_;
-    IEnablable *enablable_;
-    IBlind *blind_;
-    ILooper *looper_;
     void setSavedSelectionState();
     void setInitialStatusValues();
     void loopPowerOffButton();

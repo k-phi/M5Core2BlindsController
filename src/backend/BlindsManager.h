@@ -23,11 +23,11 @@ class BlindsManager : public IBlind, IEnablable, ILooper {
     virtual unsigned int getId();
 
    private:
+    unsigned int *blindIds_;
+    unsigned int numberOfIds_;
     IEnablable *enablable_;
     IBlinds *blinds_;
     ILooper *looper_;
-    unsigned int *blindIds_;
-    unsigned int numberOfIds_;
 };
 
 #endif  // __BLINDSMANAGER_H__
