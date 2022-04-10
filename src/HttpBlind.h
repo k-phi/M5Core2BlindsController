@@ -17,7 +17,7 @@ class HttpBlind : public IBlind, public ILooper {
    public:
     HttpBlind(BlindConfiguration &blindConfiguration, IHttpClient *httpClient,
               long &timoutInMilliseconds);
-    virtual ~HttpBlind();
+    virtual ~HttpBlind(){};
     virtual unsigned int getId();
     virtual void loop();
     virtual void open();

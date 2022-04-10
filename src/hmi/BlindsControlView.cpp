@@ -24,20 +24,7 @@ BlindsControlView::BlindsControlView(
     }
 }
 
-BlindsControlView::~BlindsControlView() {
-    delete goToTiltPositionButton_;
-    delete powerOffButton_;
-    delete toggleAllSelectionButton_;
-    delete statusBar_;
-    delete openButton_;
-    delete stopButton_;
-    delete closeButton_;
-    for (unsigned int buttonIndex = 0;
-         buttonIndex < numberOfBlindSelectionButtons_; buttonIndex++) {
-        delete *(blindSelectionButtons_ + buttonIndex);
-    }
-    delete blindSelectionButtons_;
-}
+BlindsControlView::~BlindsControlView() { delete blindSelectionButtons_; }
 
 void BlindsControlView::load() {
     goToTiltPositionButton_->load();

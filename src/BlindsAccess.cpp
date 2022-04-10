@@ -12,12 +12,8 @@ BlindsAccess::BlindsAccess(IBlind **blinds, ILooper **loopers,
 }
 
 BlindsAccess::~BlindsAccess() {
-    for (unsigned int blindIndex = 0; blindIndex < numberOfBlinds_;
-         blindIndex++) {
-        // TODO: Figure out while the BlindsAccessTest fail when deleting the
-        // pointers delete *(blinds_ + blindIndex); delete *(loopers_ +
-        // blindIndex);
-    }
+    delete blinds_;
+    delete loopers_;
 }
 
 void BlindsAccess::open(unsigned int id) {

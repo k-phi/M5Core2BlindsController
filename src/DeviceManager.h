@@ -7,7 +7,7 @@
 class DeviceManager : public IDevice {
    public:
     DeviceManager(IDevice *device, IPersistable *persistable);
-    ~DeviceManager();
+    ~DeviceManager() {};
     virtual void connectWiFi();
     virtual bool isWiFiConnected();
     virtual void powerOff();

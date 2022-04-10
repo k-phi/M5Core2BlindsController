@@ -102,6 +102,15 @@ class BlindsControlViewControllerTest : public ::testing::Test {
     }
 
     virtual void TearDown() override {
+        delete goToTiltPositionButton;
+        delete powerOffButton;
+        delete toggleAllSelectionButton;
+        delete statusBar;
+        delete blindsSelectionButton0;
+        delete blindsSelectionButton1;
+        delete openButton;
+        delete stopButton;
+        delete closeButton;
         delete blindsControlView;
         delete device;
         delete enablable;

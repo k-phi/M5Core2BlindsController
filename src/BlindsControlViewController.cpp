@@ -28,7 +28,9 @@ BlindsControlViewController::BlindsControlViewController(
     timeOfLastButtonPress_ = std::chrono::system_clock::now();
 }
 
-BlindsControlViewController::~BlindsControlViewController() {}
+BlindsControlViewController::~BlindsControlViewController() {
+    delete blindIds_;
+}
 
 void BlindsControlViewController::loadView() {
     view_->load();

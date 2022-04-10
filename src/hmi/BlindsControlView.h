@@ -12,8 +12,9 @@ class BlindsControlView {
                       ITouchButton *toggleAllSelectionButton,
                       IStatusBar *statusBar,
                       ISelectionButton **blindSelectionButtons,
-                      unsigned int numberOfSelectionButtons, ITouchButton *openButton,
-                      ITouchButton *stopButton, ITouchButton *closeButton);
+                      unsigned int numberOfSelectionButtons,
+                      ITouchButton *openButton, ITouchButton *stopButton,
+                      ITouchButton *closeButton);
     ~BlindsControlView();
     void load();
     ITouchButton *getGoToTiltPositionButton();

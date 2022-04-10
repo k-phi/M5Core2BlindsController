@@ -5,11 +5,7 @@
 DeviceDataAccess::DeviceDataAccess(IDeviceData *deviceData)
     : deviceData_(deviceData) {}
 
-DeviceDataAccess::~DeviceDataAccess() {
-    // TODO: Figure out while the BlindsAccessTest fail when deleting the
-    // pointer delete deviceData_;
-    deviceData_->close();
-}
+DeviceDataAccess::~DeviceDataAccess() { deviceData_->close(); }
 
 void DeviceDataAccess::enable(unsigned int id) {
     blindEnabledCache_[id] = true;

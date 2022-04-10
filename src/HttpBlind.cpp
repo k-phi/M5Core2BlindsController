@@ -18,8 +18,6 @@ HttpBlind::HttpBlind(BlindConfiguration &blindConfiguration,
     setState(HttpBlind::State::STOPPED);
 }
 
-HttpBlind::~HttpBlind() { delete httpClient_; }
-
 unsigned int HttpBlind::getId() { return id_; }
 
 void HttpBlind::loop() {
