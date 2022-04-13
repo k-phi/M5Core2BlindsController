@@ -24,7 +24,7 @@ BlindsControlViewController::BlindsControlViewController(
     isWifiConnected_ = true;
     batteryLevelInPercent_ = 100.0f;
     batteryWarningLevel_ = 0;
-    strcpy(statusMessage_, "OK");
+    strcpy(statusMessage_, "Loading...");
     timeOfLastButtonPress_ = std::chrono::system_clock::now();
 }
 
