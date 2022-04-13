@@ -8,7 +8,7 @@
 class Device : public IDevice {
    public:
     Device(char *ssid, char *passphrase,
-           const uint32_t &connection_timeout_in_milliseconds);
+           const uint32_t &connectionTimeoutInMilliseconds);
     ~Device(){};
     virtual void connectWiFi();
     virtual bool isWiFiConnected();
