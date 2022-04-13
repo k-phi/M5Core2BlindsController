@@ -7,7 +7,7 @@
 #include "IEnablable.h"
 #include "ILooper.h"
 
-class BlindsManager : public IBlind, IEnablable, ILooper {
+class BlindsManager : public IBlind, public IEnablable, public ILooper {
    public:
     BlindsManager(unsigned int *blindIds, unsigned int numberOfIds,
                   IEnablable *enablable, IBlinds *blinds, ILooper *looper);

@@ -8,7 +8,7 @@
 #include "IEnablable.h"
 #include "IPersistable.h"
 
-class DeviceDataAccess : public IPersistable, IEnablable {
+class DeviceDataAccess : public IPersistable, public IEnablable {
    public:
     DeviceDataAccess(IDeviceData *deviceData);
     virtual ~DeviceDataAccess();
