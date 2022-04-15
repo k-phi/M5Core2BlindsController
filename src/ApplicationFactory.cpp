@@ -78,14 +78,14 @@ Application *ApplicationFactory::createApplication(
 }
 
 void ApplicationFactory::createDevice() {
-    unsigned int connectionTimeoutInMilliseconds = 200;
+    unsigned int connectionTimeoutInMilliseconds = 1000;
     device_ = new Device(applicationConfiguration_->ssid,
                          applicationConfiguration_->passphrase,
                          connectionTimeoutInMilliseconds);
 }
 
 void ApplicationFactory::createDeviceData() {
-    char storageName[50] = "M5Core2BlindsController";
+    char storageName[20] = "Blinds";
     deviceData_ = new DeviceData(storageName);
 }
 
@@ -95,6 +95,7 @@ void ApplicationFactory::createHttpClient() {
 
 void ApplicationFactory::createBlinds() {
     blinds_ = new IBlind *[numberOfConfigs_];
+    loopers_ = new ILooper *[numberOfConfigs_];
     for (unsigned int configIndex = 0; configIndex < numberOfConfigs_;
          configIndex++) {
         HttpBlind *blind =
@@ -144,7 +145,7 @@ void ApplicationFactory::createBlindsControlView() {
 
     powerOffButton_ = new TouchButton(106, 0, 106, buttonHeight, "Poff");
     toggleAllSelectionButton_ =
-        new TouchButton(211, 0, 108, buttonHeight, "None");
+        new TouchButton(211, 0, 108, buttonHeight, "All");
     statusBar_ = new StatusBar(0, buttonHeight, screenWidth, buttonHeight);
 
     selectionButtons_ = new ISelectionButton *[numberOfConfigs_];
