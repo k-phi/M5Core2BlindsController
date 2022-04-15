@@ -22,6 +22,7 @@ HardwareButton::HardwareButton(const char* label, ButtonType buttonType) {
     ButtonColors offColor = {BLACK, YELLOW, NODRAW};
     button_->on = onColor;
     button_->off = offColor;
+    button_->datum = TC_DATUM;
     setLabel(label);
 }
 
