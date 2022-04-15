@@ -20,7 +20,7 @@ BlindsControlViewController::BlindsControlViewController(
     for (unsigned int idIndex = 0; idIndex < numberOfIds_; idIndex++) {
         blindIds_[idIndex] = *(blindIds + idIndex);
     }
-    areAllBlindsSelected_ = false;
+    selectAllBlinds_ = true;
     isWifiConnected_ = true;
     batteryLevelInPercent_ = 100.0f;
     batteryWarningLevel_ = 0;
@@ -100,12 +100,18 @@ void BlindsControlViewController::loopSelectionButtons() {
 }
 
 void BlindsControlViewController::loopToggleAllSelectionButtons() {
-    if (view_->getToggleAllSelectionButton()->wasPressed()) {
-        areAllBlindsSelected_ = !areAllBlindsSelected_;
+    ITouchButton *toggleAllButton = view_->getToggleAllSelectionButton();
+    if (toggleAllButton->wasPressed()) {
+        if (selectAllBlinds_) {
+            toggleAllButton->setLabel("None");
+        } else {
+            toggleAllButton->setLabel("All");
+        }
+
         for (unsigned int idIndex = 0; idIndex < numberOfIds_; idIndex++) {
             unsigned int id = blindIds_[idIndex];
             ISelectionButton *button = view_->getBlindSelectionButton(id);
-            if (areAllBlindsSelected_) {
+            if (selectAllBlinds_) {
                 enablable_->enable(id);
                 button->select();
             } else {
@@ -113,6 +119,7 @@ void BlindsControlViewController::loopToggleAllSelectionButtons() {
                 button->unselect();
             }
         }
+        selectAllBlinds_ = !selectAllBlinds_;
         isAnyButtonPressed_ = true;
     }
 }
@@ -146,6 +153,7 @@ void BlindsControlViewController::loopStatusBar() {
     bool isConnected = device_->isWiFiConnected();
     if (!isConnected) {
         strcpy(message, "Disconnected!");
+        device_->connectWiFi();
     }
     if (isConnected != isWifiConnected_) {
         statusBar->setWiFiConnectionStatus(isConnected);

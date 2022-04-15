@@ -34,7 +34,7 @@ class BlindsControlViewController : public ILooper {
     IBlind *blind_;
     ILooper *looper_;
     long idleTimeoutInMilliseconds_;
-    bool areAllBlindsSelected_;
+    bool selectAllBlinds_;
     bool isAnyButtonPressed_;
     bool isWifiConnected_;
     float batteryLevelInPercent_;

@@ -203,6 +203,7 @@ TEST_F(BlindsControlViewControllerTest,
 
     ON_CALL(*toggleAllSelectionButton, wasPressed())
         .WillByDefault(Return(true));
+    EXPECT_CALL(*toggleAllSelectionButton, setLabel(StrEq("None"))).Times(1);
     EXPECT_CALL(*enablable, enable(blindIds[0])).Times(1);
     EXPECT_CALL(*enablable, enable(blindIds[1])).Times(1);
     EXPECT_CALL(*blindsSelectionButton0, getId()).Times(4);
@@ -222,6 +223,8 @@ TEST_F(BlindsControlViewControllerTest,
 
     ON_CALL(*toggleAllSelectionButton, wasPressed())
         .WillByDefault(Return(true));
+    EXPECT_CALL(*toggleAllSelectionButton, setLabel(StrEq("None"))).Times(1);
+    EXPECT_CALL(*toggleAllSelectionButton, setLabel(StrEq("All"))).Times(1);
     EXPECT_CALL(*enablable, enable(blindIds[0])).Times(1);
     EXPECT_CALL(*enablable, enable(blindIds[1])).Times(1);
     EXPECT_CALL(*enablable, disable(blindIds[0])).Times(1);
@@ -315,13 +318,15 @@ TEST_F(BlindsControlViewControllerTest,
     controller->loop();
 }
 
-TEST_F(BlindsControlViewControllerTest, loop_setsDisconnectedInStatusBarOnce) {
+TEST_F(BlindsControlViewControllerTest,
+       loop_setsDisconnectedInStatusBarOnceAndKeepsConnecting) {
     setupCommonLoopExpectations(2);
     EXPECT_CALL(*blindsSelectionButton1, getId()).Times(4);
     EXPECT_CALL(*blindsSelectionButton0, getId()).Times(4);
 
     bool isConnected = false;
     ON_CALL(*device, isWiFiConnected()).WillByDefault(Return(isConnected));
+    EXPECT_CALL(*device, connectWiFi()).Times(2);
     EXPECT_CALL(*statusBar, setWiFiConnectionStatus(isConnected)).Times(1);
     float batteryLevelInPercent = 99.4f;
     ON_CALL(*device, getBatteryLevelInPercent())
