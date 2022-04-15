@@ -2,7 +2,11 @@
 
 #include <cstring>
 
-HttpClientWrapper::HttpClientWrapper() { httpClient_.setReuse(true); }
+HttpClientWrapper::HttpClientWrapper() {
+    Serial.println("Creating HTTP client...");
+    httpClient_.setReuse(true);
+    Serial.println("HTTP client created.");
+}
 
 bool HttpClientWrapper::begin(const char* url) {
     String urlString = String(url);

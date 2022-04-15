@@ -4,11 +4,12 @@
 
 DeviceData::DeviceData(char* storageName) : storageName_(storageName)
 {
+    Serial.println("Opening storage...");
     bool isSuccessful = preferences_.begin(storageName_);
     if (isSuccessful) {
-        Serial.print("Storage successfully opened.");
+        Serial.println("Storage opened successfully.");
     } else {
-        Serial.print("Error opening storage.");
+        Serial.println("Opening storage failed.");
     }
 }
 

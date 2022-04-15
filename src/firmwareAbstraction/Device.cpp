@@ -11,8 +11,14 @@ Device::Device(char *ssid, char *passphrase,
     Serial.begin(115200);
     Serial.flush();
 
+    Serial.println("Connecting to WiFi...");
     wifiMulti_.addAP(ssid_, passphrase_);
     connectWiFi();
+    if (isWiFiConnected()) {
+        Serial.println("WiFi connected successfully.");
+    } else {
+        Serial.println("Connecting WiFi failed.");
+    }
 }
 
 void Device::connectWiFi() {
