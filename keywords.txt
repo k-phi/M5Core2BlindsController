@@ -6,13 +6,18 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-BlindsControllerApplication  KEYWORD1
+Application KEYWORD1
+ApplicationConfiguration    KEYWORD1
+ApplicationFactory  KEYWORD1
+BlindConfiguration  KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-setup    KEYWORD2
 
+createApplication   KEYWORD2
+loop    KEYWORD2
+setup   KEYWORD2
 
 ######################################
 # Constants (LITERAL1)
