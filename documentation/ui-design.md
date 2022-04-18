@@ -1,13 +1,11 @@
 # UI Design
 
+The UI consists of one single view.
+
 ## Blinds control view
 
-Because of the restricted real estate area the special buttons on top for tilt, menu and select all blinds are separated from the blind selector by the status bar. Thereby, accidential button activation shall be reduced.
+Because of the restricted real estate area the special buttons on top for tilt, power off and (de-)selecting all blinds are separated from the blind selector by the status bar. Thereby, accidential button activation shall be reduced.
 
-![blinds-view](http://www.plantuml.com/plantuml/png/xTh1YeCm40RWUvvYJXwws2S8qdVOoqBf8TOf158joLXRrhxxcbXxAgLiMP3jFw1aSA8VY332h88OBy4ueTBPkWhvqNAdlZyK3R7McJDdzg4OaWrHJslIsPxhjeZvc9xIEjNhhBCx6ujZz4IVOgGDjrHdfH5XVyvthND3NTgLJjSdfhleaHBOyLOQVxkmd5lyHlRr89ukXMmciZ-F98Vi5TbJBnyoo2233B8NkY3887jlsN_uGu5i_Z9ycv111Xbaa4466VepoD3JGWOPP9111XbaaA4_WmookxAYICiBzRI8Xve6lhR6i-JI7CQPhsdagx8cFvWsy3JvDLMMZKYpJyNgebPSLt6Qx0S0 "blinds-view")
+![blinds-view](http://www.plantuml.com/plantuml/png/xTezYy90483XVd_5DDSeNcSXI0XO2gUWXI0fF5qXiEm6Tz72-D_T929N78SV2Egz0qc6p38yHGAJiAaFYqtm2nFas-HsvJlRNE_KlgqanbockGcPb7CPk_Kw9l7MbxCwaxhUwtx4Soao6ZON6tlegjBKJssgwFUR_buRlGnkSovyFblS8flz4HSlHOOC6J9aBobxOFoG8xj7TiKZW0mPCcJ8RlfsGeRiVylUuRy6ikUNyMuYGuOC6J9ao9ZFa37J8aE631aoPCYGCPyXG_QhB4dgz22bjAf3DNi_HuMszOxFIN15dGoCypfJ1vLgkwhsZ1u1 "blinds-view")
 
-## Menu
-
-In the menu view the status bar is on top. The view currently contains the closing and power down  buttons, only.
-
-![menu-view](http://www.plantuml.com/plantuml/png/SoWkIImgAKxCAL78JSqhrItBJ2tdgjRcKW02C66ZLfwPbccd004r2Wh19OabfSLmherQKc99IMfHfMvQQKwE7KGJr00Gq0Cg0k5e6xKAkrYuS3JOw8ByyjGYNQ0JybAIAkqKOY6wQu7AjK2OYwkMoo4rBmNaF000 "menu-view")
+See [README](README.md) for the explanations of the different controls.

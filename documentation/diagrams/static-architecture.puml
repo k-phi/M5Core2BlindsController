@@ -2,28 +2,31 @@
 
 skinparam ComponentStyle rectangle
 
-component Client {
+component Frontend {
     [HMI] #LightGreen
 }
 
-component BusinessLogic {
-    [DeviceManager] #Yellow
-    [BlindsManager] #Yellow   
+rectangle Backend {
+
+    component BusinessLogic {
+        [DeviceManager] #Yellow
+        [BlindsManager] #Yellow   
+    }
+
+    component ResourceAccess {
+        [DeviceDataAccess] #Grey
+        [DeviceAccess] #Grey
+        [BlindsAccess] #Grey
+    }
+
+    component Resources {
+        database DeviceData #LightBlue
+        [HttpClient] #LightBlue
+        [Device] #LightBlue
+    }
 }
 
-component ResourceAccess {
-    [DeviceDataAccess] #Grey
-    [DeviceAccess] #Grey
-    [BlindsAccess] #Grey
-}
-
-component Resources {
-    database DeviceData #LightBlue
-    [RESTClient] #LightBlue
-    [Device] #LightBlue
-}
-
-Client -[hidden]d-> BusinessLogic
+Frontend -[hidden]d-> BusinessLogic
 BusinessLogic --[hidden]d-> ResourceAccess
 ResourceAccess --[hidden]d-> Resources
 

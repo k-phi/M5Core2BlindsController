@@ -5,14 +5,14 @@ skinparam ComponentStyle rectangle
 [HMI] #LightGreen
 [BlindsManager] #Yellow
 [BlindsAccess] #Grey
-[DeviceAccess] #Grey
-[RESTClient] #LightBlue
-[Device] #LightBlue
+[DeviceDataAccess] #Grey
+[HttpClient] #LightBlue
+database DeviceData #LightBlue
 
 HMI --> BlindsManager
 BlindsManager --> BlindsAccess
-BlindsManager --> DeviceAccess
-BlindsAccess --> RESTClient
-DeviceAccess --> Device
+BlindsManager --> DeviceDataAccess
+BlindsAccess --> HttpClient
+DeviceDataAccess --> DeviceData
 
 @enduml

@@ -9,7 +9,7 @@ skinparam ComponentStyle rectangle
 [DeviceAccess] #Grey
 [BlindsAccess] #Grey
 database DeviceData #LightBlue
-[RESTClient] #LightBlue
+[HttpClient] #LightBlue
 [Device] #LightBlue
 
 HMI --> DeviceManager
@@ -17,9 +17,8 @@ HMI --> BlindsManager
 DeviceManager --> DeviceAccess
 BlindsManager --> DeviceDataAccess
 BlindsManager --> BlindsAccess
-BlindsManager --> DeviceAccess
 DeviceAccess --> Device
 DeviceDataAccess --> DeviceData
-BlindsAccess --> RESTClient
+BlindsAccess --> HttpClient
 
 @enduml

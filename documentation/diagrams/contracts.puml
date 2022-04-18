@@ -1,24 +1,47 @@
 @startuml Contracts
 
-interface IDeviceStatusContract {
-    void enable(String deviceID)
-    void disable(String deviceID)
-    bool isEnabled(String deviceId)
+interface IBlind {
+    unsigned int getId()
+    void open()
+    void close()
+    void stop()
+    void tilt()
 }
 
-interface IBlindCommandsContract {
-    void open(String blindID)
-    void close(String blindID)
-    void stop(String blindID)
-    void goToPosition(String blindID)
+interface IBlinds {
+    void open(unsigned int id)
+    void close(unsigned int id)
+    void stop(unsigned int id)
+    void tilt(unsigned int id)
 }
 
-interface IDeviceContract {
-    int getBatteryWarningLevel()
-    int getBatteryLevelInPercent()
-    void connectDevices()
-    bool areDevicesConnected()
-    void powerDown(int timeoutInMilliSeconds)
+interface IDevice {
+    void connectWiFi()
+    bool isWiFiConnected()
+    void powerOff()
+    float getBatteryLevelInPercent()
+    unsigned int getBatteryWarningLevel()
+}
+
+interface IDeviceData {
+    void saveBool(const char* key, bool value)
+    bool loadBool(const char* key)
+    bool clear()
+    void close()
+}
+
+interface IEnablable {
+    enable(unsigned int id)
+    void disable(unsigned int id)
+    bool isEnabled(unsigned int id)
+}
+
+interface ILooper {
+    void loop()
+}
+
+interface IPersistable {
+    void save()
 }
 
 @enduml

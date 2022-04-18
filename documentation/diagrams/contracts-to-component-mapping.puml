@@ -3,25 +3,48 @@
 skinparam ComponentStyle rectangle
 allow_mixing
 
-interface IDeviceStatusContract {
-    void enable(String deviceID)
-    void disable(String deviceID)
-    bool isEnabled(String deviceId)
+interface IBlind {
+    unsigned int getId()
+    void open()
+    void close()
+    void stop()
+    void tilt()
 }
 
-interface IBlindCommandsContract {
-    void open(String blindID)
-    void close(String blindID)
-    void stop(String blindID)
-    void goToPosition(String blindID)
+interface IBlinds {
+    void open(unsigned int id)
+    void close(unsigned int id)
+    void stop(unsigned int id)
+    void tilt(unsigned int id)
 }
 
-interface IDeviceContract {
-    int getBatteryWarningLevel()
-    int getBatteryLevelInPercent()
-    void connectDevices()
-    bool areDevicesConnected()
-    void powerDown(int timeoutInMilliSeconds)
+interface IDevice {
+    void connectWiFi()
+    bool isWiFiConnected()
+    void powerOff()
+    float getBatteryLevelInPercent()
+    unsigned int getBatteryWarningLevel()
+}
+
+interface IDeviceData {
+    void saveBool(const char* key, bool value)
+    bool loadBool(const char* key)
+    bool clear()
+    void close()
+}
+
+interface IEnablable {
+    enable(unsigned int id)
+    void disable(unsigned int id)
+    bool isEnabled(unsigned int id)
+}
+
+interface ILooper {
+    void loop()
+}
+
+interface IPersistable {
+    void save()
 }
 
 component HMI #LightGreen
@@ -31,17 +54,28 @@ component DeviceDataAccess #Grey
 component DeviceAccess #Grey
 component BlindsAccess #Grey
 
-HMI ..> IDeviceStatusContract: uses
-HMI ..> IBlindCommandsContract: uses
-HMI ..> IDeviceContract: uses
-BlindsManager <|-u- IDeviceStatusContract: implements
-BlindsManager .u.> IDeviceStatusContract: uses
-BlindsManager <|-u- IBlindCommandsContract: implements
-BlindsManager .u.> IBlindCommandsContract: uses
-DeviceManager <|-u- IDeviceContract: implements
-DeviceManager .u.> IDeviceContract: uses
-DeviceDataAccess <|-u- IDeviceStatusContract: implements
-DeviceAccess <|-u- IDeviceContract: implements
-BlindsAccess <|-u- IBlindCommandsContract: implements
+HMI <|-- ILooper : implements
+HMI ..> IDevice: uses
+HMI ..> IEnablable: uses
+HMI ..> IBlind: uses
+HMI ..> ILooper: uses
+BlindsManager <|-- IBlind: implements
+BlindsManager <|-- IEnablable: implements
+BlindsManager <|-- ILooper: implements
+BlindsManager ..> IEnablable: uses
+BlindsManager ..> IBlinds: uses
+BlindsManager ..> ILooper: uses
+DeviceManager <|-- IDevice: implements
+DeviceManager ..> IDevice: uses
+DeviceManager ..> IPersistable: uses
+DeviceDataAccess <|-- IPersistable: implements
+DeviceDataAccess <|-- IEnablable: implements
+DeviceDataAccess ..> IDeviceData: uses
+DeviceAccess <|-- IDevice: implements
+DeviceAccess ..> IDevice: uses
+BlindsAccess <|-- IBlinds: implements
+BlindsAccess <|-- ILooper: implements
+BlindsAccess ..> IBlind: uses
+BlindsAccess ..> ILooper: uses
 
 @enduml

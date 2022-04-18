@@ -1,22 +1,21 @@
-@startuml Blind Configuration
+@startuml Configuration
 
-class Rectangle {
-    Point bottomLeftCorner
-    float height 
-    float width
+class ApplicationConfiguration {
+    char *ssid
+    char *passphrase
+    long idleTimeoutBeforeShutdownInMilliseconds
+    long timeoutBetweenHttpRequestsInMilliseconds
 }
 
-class Point {
-    float x
-    float y
-}
-
-class BlindConfig {
-    int level
-    Rectangle layout
-    int uniqueId
-    String ip
-    int position
+class BlindConfiguration {
+    unsigned int id
+    unsigned int buttonPositionX
+    unsigned int buttonPositionY
+    unsigned int buttonWidth
+    unsigned int buttonHeight
+    const char* iP
+    bool canTilt
+    float tiltPositionInPercent
 }
 
 @enduml
