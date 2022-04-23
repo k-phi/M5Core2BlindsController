@@ -2,6 +2,13 @@
 
 An program to control remotely blinds via [Shelly 2.5 relays](https://shelly.cloud/products/shelly-25-smart-home-automation-relay/) with a [M5Stack Core2 ESP32](https://shop.m5stack.com/collections/m5-controllers/products/m5stack-core2-esp32-iot-development-kit) device.
 
+## Contents
+
+- [User instructions](#user-instructions)
+- [Configuration and deployment](#configuration-and-deployment)
+- [Development documentation](#development-documentation)
+- [License](#license)
+
 ## User instructions
 
 ![Image of M5Stack Core 2 executing the program](documentation/IMG_5804.jpg)
@@ -22,7 +29,7 @@ An program to control remotely blinds via [Shelly 2.5 relays](https://shelly.clo
   - **Stop** button: Stops the current motion of the selected blinds.
   - **Close** button: Closes the selected blinds.
 
-## Configuration an deployment
+## Configuration and deployment
 
 ### Example sketch
 
@@ -83,3 +90,7 @@ bazelisk.cmd test --test_output=all //:tests
 ```
 
 The classes in the folder `firmwareAbstraction` are shallow wrappers for Arduino and board specific functionality. Due to their simplicity I did not take the pain to setup automatic testing for them on the target device.
+
+## License
+
+[GNU LESSER GENERAL PUBLIC LICENSE](COPYING.LESSER.md)
