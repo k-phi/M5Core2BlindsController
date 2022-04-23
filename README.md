@@ -93,4 +93,4 @@ The classes in the folder `firmwareAbstraction` are shallow wrappers for Arduino
 
 ## License
 
-[GNU LESSER GENERAL PUBLIC LICENSE](COPYING.LESSER.md)
+[GNU LESSER GENERAL PUBLIC LICENSE](LICENSE.md)

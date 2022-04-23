@@ -8,7 +8,7 @@ Version 3, 29 June 2007
 
   This version of the GNU Lesser General Public License incorporates
 the terms and conditions of version 3 of the [GNU General Public
-License](COPYING.md), supplemented by the additional permissions listed below.
+License](GPL.md), supplemented by the additional permissions listed below.
 
 ## 0. Additional Definitions.
 
