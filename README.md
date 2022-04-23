@@ -1,6 +1,6 @@
 # M5Core2BlindsController
 
-An program to control remotely blinds via [Shelly 2.5 relays](https://shelly.cloud/products/shelly-25-smart-home-automation-relay/) with a [M5Stack Core2 ESP32](https://shop.m5stack.com/collections/m5-controllers/products/m5stack-core2-esp32-iot-development-kit) device.
+A program to control remotely blinds via [Shelly 2.5 relays](https://shelly.cloud/products/shelly-25-smart-home-automation-relay/) with a [M5Stack Core2 ESP32](https://shop.m5stack.com/collections/m5-controllers/products/m5stack-core2-esp32-iot-development-kit) device.
 
 ## Contents
 
