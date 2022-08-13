@@ -258,8 +258,9 @@ TEST(HttpBlindTest, loop_sendsCorrectCommandSequenceForTilt) {
 
     blind.tilt();
     blind.loop();  // sends close
+    blind.loop();  // gets closing
     std::this_thread::sleep_for(
         std::chrono::milliseconds(timeoutInMilliseconds + 2));
-    blind.loop();  // gets stopped and sends open
+    blind.loop();  // gets stopped and sends tilt
     blind.loop();  // sends nothing
 }

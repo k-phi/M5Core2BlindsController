@@ -79,7 +79,7 @@ HttpBlind::State HttpBlind::getState() {
     if (isTimeoutExceeded()) {
         char stateString[50];
         getRollerStateFromShelly(stateString);
-        currentState_ = convertToState(stateString);
+        setState(convertToState(stateString));
     }
     return currentState_;
 }
@@ -195,7 +195,6 @@ void HttpBlind::loopTilt() {
         } else {
             if (sendCommandToShelly(HttpBlind::Command::CLOSE)) {
                 setState(HttpBlind::State::CLOSING);
-                isClosedBeforeTilt_ = true;
             }
         }
     } else {
